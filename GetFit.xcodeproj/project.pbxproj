@@ -14,6 +14,25 @@
 		94E3C45C1A2F6BE600AFE1A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94E3C45B1A2F6BE600AFE1A7 /* Images.xcassets */; };
 		94E3C45F1A2F6BE600AFE1A7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E3C45D1A2F6BE600AFE1A7 /* LaunchScreen.xib */; };
 		94E3C46B1A2F6BE600AFE1A7 /* GetFitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C46A1A2F6BE600AFE1A7 /* GetFitTests.m */; };
+		94E3C4781A2FA86F00AFE1A7 /* datahub.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4771A2FA86F00AFE1A7 /* datahub.m */; };
+		94E3C4A91A2FA93C00AFE1A7 /* TBinaryProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C47D1A2FA93C00AFE1A7 /* TBinaryProtocol.m */; };
+		94E3C4AA1A2FA93C00AFE1A7 /* TMultiplexedProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C47F1A2FA93C00AFE1A7 /* TMultiplexedProtocol.m */; };
+		94E3C4AB1A2FA93C00AFE1A7 /* TProtocolDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4821A2FA93C00AFE1A7 /* TProtocolDecorator.m */; };
+		94E3C4AC1A2FA93C00AFE1A7 /* TProtocolException.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4841A2FA93C00AFE1A7 /* TProtocolException.m */; };
+		94E3C4AD1A2FA93C00AFE1A7 /* TProtocolUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4871A2FA93C00AFE1A7 /* TProtocolUtil.m */; };
+		94E3C4AE1A2FA93C00AFE1A7 /* TSocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C48A1A2FA93C00AFE1A7 /* TSocketServer.m */; };
+		94E3C4AF1A2FA93C00AFE1A7 /* TApplicationException.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C48C1A2FA93C00AFE1A7 /* TApplicationException.m */; };
+		94E3C4B01A2FA93C00AFE1A7 /* TException.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C48E1A2FA93C00AFE1A7 /* TException.m */; };
+		94E3C4B11A2FA93C00AFE1A7 /* TFramedTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4951A2FA93C00AFE1A7 /* TFramedTransport.m */; };
+		94E3C4B21A2FA93C00AFE1A7 /* THTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4971A2FA93C00AFE1A7 /* THTTPClient.m */; };
+		94E3C4B31A2FA93C00AFE1A7 /* TMemoryBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4991A2FA93C00AFE1A7 /* TMemoryBuffer.m */; };
+		94E3C4B41A2FA93C00AFE1A7 /* TNSFileHandleTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C49B1A2FA93C00AFE1A7 /* TNSFileHandleTransport.m */; };
+		94E3C4B51A2FA93C00AFE1A7 /* TNSStreamTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C49D1A2FA93C00AFE1A7 /* TNSStreamTransport.m */; };
+		94E3C4B61A2FA93C00AFE1A7 /* TSocketClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C49F1A2FA93C00AFE1A7 /* TSocketClient.m */; };
+		94E3C4B71A2FA93C00AFE1A7 /* TSSLSocketClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4A11A2FA93C00AFE1A7 /* TSSLSocketClient.m */; };
+		94E3C4B81A2FA93C00AFE1A7 /* TSSLSocketException.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4A31A2FA93C00AFE1A7 /* TSSLSocketException.m */; };
+		94E3C4B91A2FA93C00AFE1A7 /* TTransportException.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4A61A2FA93C00AFE1A7 /* TTransportException.m */; };
+		94E3C4BA1A2FA93C00AFE1A7 /* TSharedProcessorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4A81A2FA93C00AFE1A7 /* TSharedProcessorFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +59,52 @@
 		94E3C4641A2F6BE600AFE1A7 /* GetFitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetFitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E3C4691A2F6BE600AFE1A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94E3C46A1A2F6BE600AFE1A7 /* GetFitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetFitTests.m; sourceTree = "<group>"; };
+		94E3C4761A2FA86F00AFE1A7 /* datahub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = datahub.h; path = "gen-cocoa/datahub.h"; sourceTree = "<group>"; };
+		94E3C4771A2FA86F00AFE1A7 /* datahub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = datahub.m; path = "gen-cocoa/datahub.m"; sourceTree = "<group>"; };
+		94E3C47B1A2FA93C00AFE1A7 /* TBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBase.h; sourceTree = "<group>"; };
+		94E3C47C1A2FA93C00AFE1A7 /* TBinaryProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBinaryProtocol.h; sourceTree = "<group>"; };
+		94E3C47D1A2FA93C00AFE1A7 /* TBinaryProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBinaryProtocol.m; sourceTree = "<group>"; };
+		94E3C47E1A2FA93C00AFE1A7 /* TMultiplexedProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMultiplexedProtocol.h; sourceTree = "<group>"; };
+		94E3C47F1A2FA93C00AFE1A7 /* TMultiplexedProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMultiplexedProtocol.m; sourceTree = "<group>"; };
+		94E3C4801A2FA93C00AFE1A7 /* TProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocol.h; sourceTree = "<group>"; };
+		94E3C4811A2FA93C00AFE1A7 /* TProtocolDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolDecorator.h; sourceTree = "<group>"; };
+		94E3C4821A2FA93C00AFE1A7 /* TProtocolDecorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TProtocolDecorator.m; sourceTree = "<group>"; };
+		94E3C4831A2FA93C00AFE1A7 /* TProtocolException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolException.h; sourceTree = "<group>"; };
+		94E3C4841A2FA93C00AFE1A7 /* TProtocolException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TProtocolException.m; sourceTree = "<group>"; };
+		94E3C4851A2FA93C00AFE1A7 /* TProtocolFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolFactory.h; sourceTree = "<group>"; };
+		94E3C4861A2FA93C00AFE1A7 /* TProtocolUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolUtil.h; sourceTree = "<group>"; };
+		94E3C4871A2FA93C00AFE1A7 /* TProtocolUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TProtocolUtil.m; sourceTree = "<group>"; };
+		94E3C4891A2FA93C00AFE1A7 /* TSocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSocketServer.h; sourceTree = "<group>"; };
+		94E3C48A1A2FA93C00AFE1A7 /* TSocketServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSocketServer.m; sourceTree = "<group>"; };
+		94E3C48B1A2FA93C00AFE1A7 /* TApplicationException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TApplicationException.h; sourceTree = "<group>"; };
+		94E3C48C1A2FA93C00AFE1A7 /* TApplicationException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TApplicationException.m; sourceTree = "<group>"; };
+		94E3C48D1A2FA93C00AFE1A7 /* TException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TException.h; sourceTree = "<group>"; };
+		94E3C48E1A2FA93C00AFE1A7 /* TException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TException.m; sourceTree = "<group>"; };
+		94E3C48F1A2FA93C00AFE1A7 /* Thrift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thrift.h; sourceTree = "<group>"; };
+		94E3C4901A2FA93C00AFE1A7 /* TObjective-C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TObjective-C.h"; sourceTree = "<group>"; };
+		94E3C4911A2FA93C00AFE1A7 /* TProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProcessor.h; sourceTree = "<group>"; };
+		94E3C4921A2FA93C00AFE1A7 /* TProcessorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProcessorFactory.h; sourceTree = "<group>"; };
+		94E3C4941A2FA93C00AFE1A7 /* TFramedTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFramedTransport.h; sourceTree = "<group>"; };
+		94E3C4951A2FA93C00AFE1A7 /* TFramedTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFramedTransport.m; sourceTree = "<group>"; };
+		94E3C4961A2FA93C00AFE1A7 /* THTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THTTPClient.h; sourceTree = "<group>"; };
+		94E3C4971A2FA93C00AFE1A7 /* THTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THTTPClient.m; sourceTree = "<group>"; };
+		94E3C4981A2FA93C00AFE1A7 /* TMemoryBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMemoryBuffer.h; sourceTree = "<group>"; };
+		94E3C4991A2FA93C00AFE1A7 /* TMemoryBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMemoryBuffer.m; sourceTree = "<group>"; };
+		94E3C49A1A2FA93C00AFE1A7 /* TNSFileHandleTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNSFileHandleTransport.h; sourceTree = "<group>"; };
+		94E3C49B1A2FA93C00AFE1A7 /* TNSFileHandleTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNSFileHandleTransport.m; sourceTree = "<group>"; };
+		94E3C49C1A2FA93C00AFE1A7 /* TNSStreamTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNSStreamTransport.h; sourceTree = "<group>"; };
+		94E3C49D1A2FA93C00AFE1A7 /* TNSStreamTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNSStreamTransport.m; sourceTree = "<group>"; };
+		94E3C49E1A2FA93C00AFE1A7 /* TSocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSocketClient.h; sourceTree = "<group>"; };
+		94E3C49F1A2FA93C00AFE1A7 /* TSocketClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSocketClient.m; sourceTree = "<group>"; };
+		94E3C4A01A2FA93C00AFE1A7 /* TSSLSocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSLSocketClient.h; sourceTree = "<group>"; };
+		94E3C4A11A2FA93C00AFE1A7 /* TSSLSocketClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSLSocketClient.m; sourceTree = "<group>"; };
+		94E3C4A21A2FA93C00AFE1A7 /* TSSLSocketException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSLSocketException.h; sourceTree = "<group>"; };
+		94E3C4A31A2FA93C00AFE1A7 /* TSSLSocketException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSLSocketException.m; sourceTree = "<group>"; };
+		94E3C4A41A2FA93C00AFE1A7 /* TTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTransport.h; sourceTree = "<group>"; };
+		94E3C4A51A2FA93C00AFE1A7 /* TTransportException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTransportException.h; sourceTree = "<group>"; };
+		94E3C4A61A2FA93C00AFE1A7 /* TTransportException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTransportException.m; sourceTree = "<group>"; };
+		94E3C4A71A2FA93C00AFE1A7 /* TSharedProcessorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSharedProcessorFactory.h; sourceTree = "<group>"; };
+		94E3C4A81A2FA93C00AFE1A7 /* TSharedProcessorFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSharedProcessorFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +128,7 @@
 		94E3C4421A2F6BE600AFE1A7 = {
 			isa = PBXGroup;
 			children = (
+				94E3C4741A2FA86000AFE1A7 /* External */,
 				94E3C44D1A2F6BE600AFE1A7 /* GetFit */,
 				94E3C4671A2F6BE600AFE1A7 /* GetFitTests */,
 				94E3C44C1A2F6BE600AFE1A7 /* Products */,
@@ -117,6 +183,100 @@
 				94E3C4691A2F6BE600AFE1A7 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94E3C4741A2FA86000AFE1A7 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				94E3C4791A2FA93C00AFE1A7 /* thrift */,
+				94E3C4751A2FA86700AFE1A7 /* datahub-thrift */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		94E3C4751A2FA86700AFE1A7 /* datahub-thrift */ = {
+			isa = PBXGroup;
+			children = (
+				94E3C4761A2FA86F00AFE1A7 /* datahub.h */,
+				94E3C4771A2FA86F00AFE1A7 /* datahub.m */,
+			);
+			name = "datahub-thrift";
+			sourceTree = "<group>";
+		};
+		94E3C4791A2FA93C00AFE1A7 /* thrift */ = {
+			isa = PBXGroup;
+			children = (
+				94E3C47A1A2FA93C00AFE1A7 /* protocol */,
+				94E3C4881A2FA93C00AFE1A7 /* server */,
+				94E3C48B1A2FA93C00AFE1A7 /* TApplicationException.h */,
+				94E3C48C1A2FA93C00AFE1A7 /* TApplicationException.m */,
+				94E3C48D1A2FA93C00AFE1A7 /* TException.h */,
+				94E3C48E1A2FA93C00AFE1A7 /* TException.m */,
+				94E3C48F1A2FA93C00AFE1A7 /* Thrift.h */,
+				94E3C4901A2FA93C00AFE1A7 /* TObjective-C.h */,
+				94E3C4911A2FA93C00AFE1A7 /* TProcessor.h */,
+				94E3C4921A2FA93C00AFE1A7 /* TProcessorFactory.h */,
+				94E3C4931A2FA93C00AFE1A7 /* transport */,
+				94E3C4A71A2FA93C00AFE1A7 /* TSharedProcessorFactory.h */,
+				94E3C4A81A2FA93C00AFE1A7 /* TSharedProcessorFactory.m */,
+			);
+			name = thrift;
+			path = src;
+			sourceTree = "<group>";
+		};
+		94E3C47A1A2FA93C00AFE1A7 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				94E3C47B1A2FA93C00AFE1A7 /* TBase.h */,
+				94E3C47C1A2FA93C00AFE1A7 /* TBinaryProtocol.h */,
+				94E3C47D1A2FA93C00AFE1A7 /* TBinaryProtocol.m */,
+				94E3C47E1A2FA93C00AFE1A7 /* TMultiplexedProtocol.h */,
+				94E3C47F1A2FA93C00AFE1A7 /* TMultiplexedProtocol.m */,
+				94E3C4801A2FA93C00AFE1A7 /* TProtocol.h */,
+				94E3C4811A2FA93C00AFE1A7 /* TProtocolDecorator.h */,
+				94E3C4821A2FA93C00AFE1A7 /* TProtocolDecorator.m */,
+				94E3C4831A2FA93C00AFE1A7 /* TProtocolException.h */,
+				94E3C4841A2FA93C00AFE1A7 /* TProtocolException.m */,
+				94E3C4851A2FA93C00AFE1A7 /* TProtocolFactory.h */,
+				94E3C4861A2FA93C00AFE1A7 /* TProtocolUtil.h */,
+				94E3C4871A2FA93C00AFE1A7 /* TProtocolUtil.m */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
+		94E3C4881A2FA93C00AFE1A7 /* server */ = {
+			isa = PBXGroup;
+			children = (
+				94E3C4891A2FA93C00AFE1A7 /* TSocketServer.h */,
+				94E3C48A1A2FA93C00AFE1A7 /* TSocketServer.m */,
+			);
+			path = server;
+			sourceTree = "<group>";
+		};
+		94E3C4931A2FA93C00AFE1A7 /* transport */ = {
+			isa = PBXGroup;
+			children = (
+				94E3C4941A2FA93C00AFE1A7 /* TFramedTransport.h */,
+				94E3C4951A2FA93C00AFE1A7 /* TFramedTransport.m */,
+				94E3C4961A2FA93C00AFE1A7 /* THTTPClient.h */,
+				94E3C4971A2FA93C00AFE1A7 /* THTTPClient.m */,
+				94E3C4981A2FA93C00AFE1A7 /* TMemoryBuffer.h */,
+				94E3C4991A2FA93C00AFE1A7 /* TMemoryBuffer.m */,
+				94E3C49A1A2FA93C00AFE1A7 /* TNSFileHandleTransport.h */,
+				94E3C49B1A2FA93C00AFE1A7 /* TNSFileHandleTransport.m */,
+				94E3C49C1A2FA93C00AFE1A7 /* TNSStreamTransport.h */,
+				94E3C49D1A2FA93C00AFE1A7 /* TNSStreamTransport.m */,
+				94E3C49E1A2FA93C00AFE1A7 /* TSocketClient.h */,
+				94E3C49F1A2FA93C00AFE1A7 /* TSocketClient.m */,
+				94E3C4A01A2FA93C00AFE1A7 /* TSSLSocketClient.h */,
+				94E3C4A11A2FA93C00AFE1A7 /* TSSLSocketClient.m */,
+				94E3C4A21A2FA93C00AFE1A7 /* TSSLSocketException.h */,
+				94E3C4A31A2FA93C00AFE1A7 /* TSSLSocketException.m */,
+				94E3C4A41A2FA93C00AFE1A7 /* TTransport.h */,
+				94E3C4A51A2FA93C00AFE1A7 /* TTransportException.h */,
+				94E3C4A61A2FA93C00AFE1A7 /* TTransportException.m */,
+			);
+			path = transport;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +379,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94E3C4A91A2FA93C00AFE1A7 /* TBinaryProtocol.m in Sources */,
+				94E3C4BA1A2FA93C00AFE1A7 /* TSharedProcessorFactory.m in Sources */,
+				94E3C4B41A2FA93C00AFE1A7 /* TNSFileHandleTransport.m in Sources */,
+				94E3C4AF1A2FA93C00AFE1A7 /* TApplicationException.m in Sources */,
+				94E3C4B11A2FA93C00AFE1A7 /* TFramedTransport.m in Sources */,
+				94E3C4AB1A2FA93C00AFE1A7 /* TProtocolDecorator.m in Sources */,
 				94E3C4571A2F6BE600AFE1A7 /* ViewController.m in Sources */,
+				94E3C4B21A2FA93C00AFE1A7 /* THTTPClient.m in Sources */,
+				94E3C4781A2FA86F00AFE1A7 /* datahub.m in Sources */,
+				94E3C4AC1A2FA93C00AFE1A7 /* TProtocolException.m in Sources */,
+				94E3C4B71A2FA93C00AFE1A7 /* TSSLSocketClient.m in Sources */,
 				94E3C4541A2F6BE600AFE1A7 /* AppDelegate.m in Sources */,
+				94E3C4B61A2FA93C00AFE1A7 /* TSocketClient.m in Sources */,
+				94E3C4AA1A2FA93C00AFE1A7 /* TMultiplexedProtocol.m in Sources */,
 				94E3C4511A2F6BE600AFE1A7 /* main.m in Sources */,
+				94E3C4B91A2FA93C00AFE1A7 /* TTransportException.m in Sources */,
+				94E3C4AE1A2FA93C00AFE1A7 /* TSocketServer.m in Sources */,
+				94E3C4B31A2FA93C00AFE1A7 /* TMemoryBuffer.m in Sources */,
+				94E3C4B51A2FA93C00AFE1A7 /* TNSStreamTransport.m in Sources */,
+				94E3C4B01A2FA93C00AFE1A7 /* TException.m in Sources */,
+				94E3C4B81A2FA93C00AFE1A7 /* TSSLSocketException.m in Sources */,
+				94E3C4AD1A2FA93C00AFE1A7 /* TProtocolUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +521,12 @@
 		94E3C46F1A2F6BE600AFE1A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCRoot)",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = GetFit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,7 +536,12 @@
 		94E3C4701A2F6BE600AFE1A7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCRoot)",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = GetFit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
