@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9499C9641A321A27004CEB67 /* OAuthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499C9631A321A27004CEB67 /* OAuthVC.m */; };
 		94E3C4511A2F6BE600AFE1A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4501A2F6BE600AFE1A7 /* main.m */; };
 		94E3C4541A2F6BE600AFE1A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4531A2F6BE600AFE1A7 /* AppDelegate.m */; };
 		94E3C4571A2F6BE600AFE1A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4561A2F6BE600AFE1A7 /* ViewController.m */; };
@@ -46,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9499C9621A321A27004CEB67 /* OAuthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthVC.h; path = OAuth/OAuthVC.h; sourceTree = "<group>"; };
+		9499C9631A321A27004CEB67 /* OAuthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuthVC.m; path = OAuth/OAuthVC.m; sourceTree = "<group>"; };
 		94E3C44B1A2F6BE600AFE1A7 /* GetFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E3C44F1A2F6BE600AFE1A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94E3C4501A2F6BE600AFE1A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -125,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9499C9591A320D18004CEB67 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				9499C9621A321A27004CEB67 /* OAuthVC.h */,
+				9499C9631A321A27004CEB67 /* OAuthVC.m */,
+			);
+			name = OAuth;
+			sourceTree = "<group>";
+		};
 		94E3C4421A2F6BE600AFE1A7 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +159,7 @@
 		94E3C44D1A2F6BE600AFE1A7 /* GetFit */ = {
 			isa = PBXGroup;
 			children = (
+				9499C9591A320D18004CEB67 /* OAuth */,
 				94E3C4521A2F6BE600AFE1A7 /* AppDelegate.h */,
 				94E3C4531A2F6BE600AFE1A7 /* AppDelegate.m */,
 				94E3C4551A2F6BE600AFE1A7 /* ViewController.h */,
@@ -395,6 +408,7 @@
 				94E3C4AA1A2FA93C00AFE1A7 /* TMultiplexedProtocol.m in Sources */,
 				94E3C4511A2F6BE600AFE1A7 /* main.m in Sources */,
 				94E3C4B91A2FA93C00AFE1A7 /* TTransportException.m in Sources */,
+				9499C9641A321A27004CEB67 /* OAuthVC.m in Sources */,
 				94E3C4AE1A2FA93C00AFE1A7 /* TSocketServer.m in Sources */,
 				94E3C4B31A2FA93C00AFE1A7 /* TMemoryBuffer.m in Sources */,
 				94E3C4B51A2FA93C00AFE1A7 /* TNSStreamTransport.m in Sources */,
@@ -529,7 +543,7 @@
 				);
 				INFOPLIST_FILE = GetFit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GetFit;
 			};
 			name = Debug;
 		};
@@ -544,7 +558,7 @@
 				);
 				INFOPLIST_FILE = GetFit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GetFit;
 			};
 			name = Release;
 		};
@@ -562,7 +576,7 @@
 				);
 				INFOPLIST_FILE = GetFitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GetFitTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GetFit.app/GetFit";
 			};
 			name = Debug;
@@ -577,7 +591,7 @@
 				);
 				INFOPLIST_FILE = GetFitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GetFitTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GetFit.app/GetFit";
 			};
 			name = Release;
@@ -601,6 +615,7 @@
 				94E3C4701A2F6BE600AFE1A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		94E3C4711A2F6BE600AFE1A7 /* Build configuration list for PBXNativeTarget "GetFitTests" */ = {
 			isa = XCConfigurationList;
@@ -609,6 +624,7 @@
 				94E3C4731A2F6BE600AFE1A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

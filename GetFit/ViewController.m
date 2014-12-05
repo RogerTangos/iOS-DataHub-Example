@@ -7,11 +7,16 @@
 //
 
 #import "ViewController.h"
+#import "OAuthVC.h"
+
 #import "datahub.h"
 #import <THTTPClient.h>
 #import <TBinaryProtocol.h>
 
-@interface ViewController ()
+@interface ViewController (){
+    Connection *dhConnection;
+    DataHubClient *dhServer;
+}
 
 @end
 
@@ -29,27 +34,88 @@
 
 
 
+- (IBAction)dbCreateUser:(id)sender {
+}
+
 - (IBAction)dbConnect:(id)sender {
     NSLog(@"dbconnect called");
     
-    NSURL *url = [NSURL URLWithString:@"http://datahub.csail.mit.edu/service"];
+    @try {
+        NSURL *url = [NSURL URLWithString:@"http://datahub.csail.mit.edu/service"];
+        
+        // Talk to a server via HTTP, using a binary protocol
+        THTTPClient *transport = [[THTTPClient alloc] initWithURL:url];
+        TBinaryProtocol *protocol = [[TBinaryProtocol alloc]
+                                     initWithTransport:transport
+                                     strictRead:YES
+                                     strictWrite:YES];
+        
+        dhServer = [[DataHubClient alloc] initWithProtocol:protocol];
+        
+        ConnectionParams *conparams = [[ConnectionParams alloc] initWithClient_id:@"foo" seq_id:nil user:@"al_carter" password:@"Gh6$U2!Y" repo_base:nil];
+        
+        dhConnection = [dhServer open_connection:conparams];
+        NSLog(@"Successfully establish db connection");
+    }
+    @catch (NSException *exception) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Error"
+                                                        message:@"A connection could not be established"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
     
-    // Talk to a server via HTTP, using a binary protocol
-    THTTPClient *transport = [[THTTPClient alloc] initWithURL:url];
-    TBinaryProtocol *protocol = [[TBinaryProtocol alloc]
-                                 initWithTransport:transport
-                                 strictRead:YES
-                                 strictWrite:YES];
-
-    DataHubClient *server = [[DataHubClient alloc] initWithProtocol:protocol];
-
-    ConnectionParams *conparams = [[ConnectionParams alloc] initWithClient_id:@"foo" seq_id:nil user:@"anantb" password:@"anant" repo_base:nil];
     
-    Connection *connection = [server open_connection:conparams];
 
-    ResultSet *results =  [server execute_sql:connection query:@"select * from test.demo" query_params:nil];
+}
+
+- (IBAction)dbSelect:(id)sender {
+    ResultSet *results =  [dhServer execute_sql:dhConnection query:@"select * from test.demo" query_params:nil];
     
     NSLog(@"%@", results);
+}
+
+- (IBAction)dbCreate:(id)sender {
+    
+    ResultSet *repoCreation = [dhServer create_repo:dhConnection repo_name:@"getfit"];
+    NSLog(@"%@", repoCreation);
+    
+    
+    NSString *creationScript = @"create table getfit.device(    device_id varchar(50) primary key NOT NULL,    createdate timestamp default LOCALTIMESTAMP); create table getfit.battery(    device_id_fk varchar(50) references getfit.device(device_id) NOT NULL,    datetime timestamp not null,    level integer,    state varchar(20));create table getfit.deviceinfo(    device_id_fk varchar(50) references getfit.device(device_id) NOT NULL,    datetime timestamp not null,    brightness decimal,    country varchar(20),    language varchar(20),    system_version varchar(20));create table getfit.motion(    device_id_fk varchar(50) references getfit.device(device_id) NOT NULL,    datetime timestamp not null,    attitude_pitch decimal,    attitude_roll decimal,    attitude_yaw decimal,    gravity_x decimal,    gravity_y decimal,    gravity_z decimal,    rotationRate_x decimal,    rotationRate_y decimal,    rotationRate_z decimal,    userAcceleration_x decimal,    userAcceleration_y decimal,    userAcceleration_z decimal);create table getfit.positioning(    device_id_fk varchar(50) references getfit.device(device_id) NOT NULL,    datetime timestamp not null,    horizontal_accuracy decimal,    lat decimal,    lon decimal,    speed decimal,    course decimal,    altitude decimal,    vertical_accuracy decimal);create table getfit.proximity(    device_id_fk varchar(50) references getfit.device(device_id) NOT NULL,    datetime timestamp not null,    state boolean);create table getfit.activity(    device_id_fk varchar(50) references getfit.device(device_id) NOT NULL,    datetime timestamp NOT NULL,    activity varchar(50),    confidence varchar(50),    steps integer,    startDate timestamp NOT NULL,    endDate timestamp NOT NULL);";
+    
+    ResultSet *tableCreation =[dhServer execute_sql:dhConnection query:creationScript query_params:nil];
+    
+    NSLog(@"%@", tableCreation);
+}
+
+- (IBAction)dbGrant:(id)sender {
+    NSString *grantScript = @"grant all on getfit to alacarter;";
+
+    ResultSet *results =[dhServer execute_sql:dhConnection query:grantScript query_params:nil];
+    
+    NSLog(@"%@", results);
+    
+}
+
+- (IBAction)dbDelete:(id)sender {
+    
+    ResultSet *results =[dhServer delete_repo:dhConnection repo_name:@"getfit" force_if_non_empty:YES];
+    
+    NSLog(@"%@", results);
+    
+}
+
+- (IBAction)getfitLogin:(id)sender {
+    OAuthVC *oAuthVC = [[OAuthVC alloc]  init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:oAuthVC];
+    navController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:navController animated:YES completion:nil];
+    
+    
+    
+    
+
 }
 
 

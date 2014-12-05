@@ -16,25 +16,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPV-SB-DIb">
+                                <rect key="frame" x="248" y="96" width="104" height="30"/>
+                                <state key="normal" title="Select from DB">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dbSelect:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9P9-TI-QpA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qO2-bm-ks2">
+                                <rect key="frame" x="200" y="172" width="200" height="30"/>
+                                <state key="normal" title="--> Grant Access to al_carter">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dbGrant:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LiY-yd-eDX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lls-B8-WbC">
+                                <rect key="frame" x="253" y="134" width="94" height="30"/>
+                                <state key="normal" title="Create Tables">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dbCreate:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YNW-Ug-geg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZx-Oy-jjc">
+                                <rect key="frame" x="257" y="210" width="85" height="30"/>
+                                <state key="normal" title="Delete Repo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dbDelete:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kLG-XM-OwL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1H-au-aEh">
+                                <rect key="frame" x="246" y="20" width="108" height="30"/>
+                                <state key="normal" title="--> Create User">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dbCreateUser:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="N77-42-SdN"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qf5-Xj-A8M">
-                                <rect key="frame" x="249" y="28" width="102" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="102" id="Ttj-IX-jr3"/>
-                                </constraints>
-                                <state key="normal" title="Connect to DB">
+                                <rect key="frame" x="227" y="58" width="146" height="30"/>
+                                <state key="normal" title="Establish Connection">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="dbConnect:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qts-ol-3zz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VY0-kC-GeL">
+                                <rect key="frame" x="238" y="248" width="124" height="30"/>
+                                <state key="normal" title="--> Log into Getfit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getfitLogin:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="VXU-Sp-9D4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="Qf5-Xj-A8M" secondAttribute="centerY" constant="257" id="4lj-Zv-RKw"/>
-                            <constraint firstItem="Qf5-Xj-A8M" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="5Sh-wQ-WdV"/>
-                            <constraint firstItem="Qf5-Xj-A8M" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="CeU-1y-Tlz"/>
+                            <constraint firstItem="Qf5-Xj-A8M" firstAttribute="centerX" secondItem="SPV-SB-DIb" secondAttribute="centerX" id="2OM-f4-Txt"/>
+                            <constraint firstItem="VY0-kC-GeL" firstAttribute="top" secondItem="rZx-Oy-jjc" secondAttribute="bottom" constant="8" id="AG1-Q4-Kaf"/>
+                            <constraint firstItem="Qf5-Xj-A8M" firstAttribute="centerX" secondItem="qO2-bm-ks2" secondAttribute="centerX" id="BsH-oC-J5H"/>
+                            <constraint firstItem="f1H-au-aEh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="FbP-c9-Id7"/>
+                            <constraint firstItem="f1H-au-aEh" firstAttribute="centerX" secondItem="Qf5-Xj-A8M" secondAttribute="centerX" id="KoN-hC-TXm"/>
+                            <constraint firstItem="Qf5-Xj-A8M" firstAttribute="centerX" secondItem="rZx-Oy-jjc" secondAttribute="centerX" id="LL0-Rj-ltR"/>
+                            <constraint firstItem="SPV-SB-DIb" firstAttribute="top" secondItem="Qf5-Xj-A8M" secondAttribute="bottom" constant="8" id="Pp5-aA-SBU"/>
+                            <constraint firstItem="qO2-bm-ks2" firstAttribute="top" secondItem="Lls-B8-WbC" secondAttribute="bottom" constant="8" id="R76-GV-f0K"/>
+                            <constraint firstItem="rZx-Oy-jjc" firstAttribute="top" secondItem="qO2-bm-ks2" secondAttribute="bottom" constant="8" id="URQ-e1-Xl8"/>
+                            <constraint firstItem="Qf5-Xj-A8M" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="38" id="Vts-45-aSE"/>
+                            <constraint firstItem="Qf5-Xj-A8M" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="aIF-6u-VfX"/>
+                            <constraint firstItem="Qf5-Xj-A8M" firstAttribute="centerX" secondItem="Lls-B8-WbC" secondAttribute="centerX" id="ks1-Fx-SbO"/>
+                            <constraint firstItem="VY0-kC-GeL" firstAttribute="centerX" secondItem="qO2-bm-ks2" secondAttribute="centerX" id="sm4-zn-M2H"/>
                             <constraint firstItem="Qf5-Xj-A8M" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="tA1-Su-5ZD"/>
+                            <constraint firstItem="Lls-B8-WbC" firstAttribute="top" secondItem="SPV-SB-DIb" secondAttribute="bottom" constant="8" id="uvH-r9-Rcf"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

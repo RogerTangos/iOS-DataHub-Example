@@ -10,7 +10,16 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)dbCreateUser:(id)sender;
 - (IBAction)dbConnect:(id)sender;
+- (IBAction)dbSelect:(id)sender;
+- (IBAction)dbCreate:(id)sender;
+- (IBAction)dbGrant:(id)sender;
+- (IBAction)dbDelete:(id)sender;
+
+- (IBAction)getfitLogin:(id)sender;
+
+
 
 @end
 
