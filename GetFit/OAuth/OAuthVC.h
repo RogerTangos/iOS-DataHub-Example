@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OAuthVC : UIViewController
-//<UIWebViewDelegate, NSURLConnectionDelegate>
+@interface OAuthVC : UIViewController <UIWebViewDelegate, NSURLConnectionDelegate>
 
 @end

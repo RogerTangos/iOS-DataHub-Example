@@ -13,26 +13,55 @@
 @end
 
 @implementation OAuthVC
+UIWebView *webView;
+NSString *urlStr;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"OAuthVC Loaded");
-    // Do any additional setup after loading the view.
+    
+    // make a bar button
+    [self makeDoneButton];
+    
+    // prep the url
+    [self prepUrl];
+    
+    // make the web view load
+    [self setupWebView];
 }
+
+
+- (void)dismiss {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void) makeDoneButton {
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                    style:UIBarButtonItemStyleDone target:self action:@selector(dismiss)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+}
+
+- (void) setupWebView {
+    // layout view
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    webView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, screenRect.size.width ,screenRect.size.height)];
+    
+    // load url
+    NSURL *nsurl=[NSURL URLWithString:urlStr];
+    NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];
+    [webView loadRequest:nsrequest];
+    [self.view addSubview:webView];
+
+}
+
+- (void) prepUrl{
+    // this method exists because I may need to do some more compliated things with urls alter.
+    urlStr = @"https://getfit-d7-dev.mit.edu/Shibboleth.sso/Login?target=https%3A%2F%2Fgetfit-d7-dev.mit.edu%2F%3Fq%3Dshib_login%2Ffront-page";
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
