@@ -7,6 +7,7 @@
 //
 
 #import "SensorVC.h"
+#import "OpenSense.h"
 
 @interface SensorVC ()
 

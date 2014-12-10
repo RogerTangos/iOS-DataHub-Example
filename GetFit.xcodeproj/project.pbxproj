@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		94087B121A38A18A003F00D0 /* SensorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94087B111A38A18A003F00D0 /* SensorVC.m */; };
 		9499C9641A321A27004CEB67 /* OAuthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499C9631A321A27004CEB67 /* OAuthVC.m */; };
+		94DFCF1C1A38BD6700874346 /* libOpenSense.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94DFCF1B1A38BD6700874346 /* libOpenSense.a */; };
 		94E3C4511A2F6BE600AFE1A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4501A2F6BE600AFE1A7 /* main.m */; };
 		94E3C4541A2F6BE600AFE1A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4531A2F6BE600AFE1A7 /* AppDelegate.m */; };
 		94E3C4571A2F6BE600AFE1A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4561A2F6BE600AFE1A7 /* ViewController.m */; };
@@ -52,6 +53,8 @@
 		94087B111A38A18A003F00D0 /* SensorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SensorVC.m; path = Sensor/SensorVC.m; sourceTree = "<group>"; };
 		9499C9621A321A27004CEB67 /* OAuthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthVC.h; path = OAuth/OAuthVC.h; sourceTree = "<group>"; };
 		9499C9631A321A27004CEB67 /* OAuthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuthVC.m; path = OAuth/OAuthVC.m; sourceTree = "<group>"; };
+		94DFCF101A38B9E300874346 /* OpenSense.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OpenSense.xcodeproj; path = OpenSense/OpenSense.xcodeproj; sourceTree = SOURCE_ROOT; };
+		94DFCF1B1A38BD6700874346 /* libOpenSense.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOpenSense.a; path = "OpenSense/build/Debug-iphoneos/libOpenSense.a"; sourceTree = "<group>"; };
 		94E3C44B1A2F6BE600AFE1A7 /* GetFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E3C44F1A2F6BE600AFE1A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94E3C4501A2F6BE600AFE1A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94DFCF1C1A38BD6700874346 /* libOpenSense.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +156,8 @@
 		94E3C4421A2F6BE600AFE1A7 = {
 			isa = PBXGroup;
 			children = (
+				94DFCF1B1A38BD6700874346 /* libOpenSense.a */,
+				94DFCF101A38B9E300874346 /* OpenSense.xcodeproj */,
 				94E3C4741A2FA86000AFE1A7 /* External */,
 				94E3C44D1A2F6BE600AFE1A7 /* GetFit */,
 				94E3C4671A2F6BE600AFE1A7 /* GetFitTests */,
@@ -473,7 +479,7 @@
 		94E3C46C1A2F6BE600AFE1A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -504,6 +510,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$SRCROOT/OpenSense/build/includes/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -514,7 +521,7 @@
 		94E3C46D1A2F6BE600AFE1A7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -539,6 +546,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$SRCROOT/OpenSense/build/includes/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -555,8 +563,13 @@
 					"$(SRCRoot)",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = "$SRCROOT/OpenSense/**";
 				INFOPLIST_FILE = GetFit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenSense/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = GetFit;
 			};
 			name = Debug;
@@ -570,8 +583,13 @@
 					"$(SRCRoot)",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = "$SRCROOT/OpenSense/**";
 				INFOPLIST_FILE = GetFit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenSense/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = GetFit;
 			};
 			name = Release;
