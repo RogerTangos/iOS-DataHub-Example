@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94087B121A38A18A003F00D0 /* SensorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94087B111A38A18A003F00D0 /* SensorVC.m */; };
 		9499C9641A321A27004CEB67 /* OAuthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499C9631A321A27004CEB67 /* OAuthVC.m */; };
 		94E3C4511A2F6BE600AFE1A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4501A2F6BE600AFE1A7 /* main.m */; };
 		94E3C4541A2F6BE600AFE1A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4531A2F6BE600AFE1A7 /* AppDelegate.m */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		94087B101A38A18A003F00D0 /* SensorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SensorVC.h; path = Sensor/SensorVC.h; sourceTree = "<group>"; };
+		94087B111A38A18A003F00D0 /* SensorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SensorVC.m; path = Sensor/SensorVC.m; sourceTree = "<group>"; };
 		9499C9621A321A27004CEB67 /* OAuthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthVC.h; path = OAuth/OAuthVC.h; sourceTree = "<group>"; };
 		9499C9631A321A27004CEB67 /* OAuthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuthVC.m; path = OAuth/OAuthVC.m; sourceTree = "<group>"; };
 		94E3C44B1A2F6BE600AFE1A7 /* GetFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +131,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94087B0F1A38A16A003F00D0 /* Sensor */ = {
+			isa = PBXGroup;
+			children = (
+				94087B101A38A18A003F00D0 /* SensorVC.h */,
+				94087B111A38A18A003F00D0 /* SensorVC.m */,
+			);
+			name = Sensor;
+			sourceTree = "<group>";
+		};
 		9499C9591A320D18004CEB67 /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +171,7 @@
 		94E3C44D1A2F6BE600AFE1A7 /* GetFit */ = {
 			isa = PBXGroup;
 			children = (
+				94087B0F1A38A16A003F00D0 /* Sensor */,
 				9499C9591A320D18004CEB67 /* OAuth */,
 				94E3C4521A2F6BE600AFE1A7 /* AppDelegate.h */,
 				94E3C4531A2F6BE600AFE1A7 /* AppDelegate.m */,
@@ -400,6 +413,7 @@
 				94E3C4AB1A2FA93C00AFE1A7 /* TProtocolDecorator.m in Sources */,
 				94E3C4571A2F6BE600AFE1A7 /* ViewController.m in Sources */,
 				94E3C4B21A2FA93C00AFE1A7 /* THTTPClient.m in Sources */,
+				94087B121A38A18A003F00D0 /* SensorVC.m in Sources */,
 				94E3C4781A2FA86F00AFE1A7 /* datahub.m in Sources */,
 				94E3C4AC1A2FA93C00AFE1A7 /* TProtocolException.m in Sources */,
 				94E3C4B71A2FA93C00AFE1A7 /* TSSLSocketClient.m in Sources */,

@@ -44,6 +44,7 @@ NSString *urlStr;
     // layout view
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     webView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, screenRect.size.width ,screenRect.size.height)];
+    webView.delegate = self;
     
     // load url
     NSURL *nsurl=[NSURL URLWithString:urlStr];
@@ -56,6 +57,17 @@ NSString *urlStr;
 - (void) prepUrl{
     // this method exists because I may need to do some more compliated things with urls alter.
     urlStr = @"https://getfit-d7-dev.mit.edu/Shibboleth.sso/Login?target=https%3A%2F%2Fgetfit-d7-dev.mit.edu%2F%3Fq%3Dshib_login%2Ffront-page";
+}
+
+// extract email address
+- (void) webViewDidFinishLoad:(UIWebView *)webView
+{
+    NSString *url = [webView stringByEvaluatingJavaScriptFromString:@"document.URL"];
+    NSLog(@"%@", url);
+    // hide window
+    // extract email address
+    // close window
+    
 }
 
 
