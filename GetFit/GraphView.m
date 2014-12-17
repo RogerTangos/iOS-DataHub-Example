@@ -25,27 +25,33 @@
 }
 
 - (void) addGraphOne {
-    NSLog(@"Graph 1 added");
-//    CGRect frame = self.window.bounds;
+    UIView *catView = [[UIView alloc] initWithFrame:CGRectMake(20, 50, 320-40, 200- 40)];
     
-    UIImage *img = [UIImage imageNamed:@"GraphOne.jpg"];
-    CGRect frame = CGRectMake(20, 20, img.size.width, img.size.height);
-    UIImageView *logoView = [[UIImageView alloc] initWithFrame:frame];
-    logoView.tintColor = [UIColor orangeColor];
-//    [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"GraphOne.jpg"]];
-    
+    UIImage *image = [UIImage imageNamed:@"GraphOne.jpg"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
 
+    imageView.frame = catView.bounds;
     
+    [catView addSubview:imageView];
     
-    
-    [self addSubview:logoView];
-    
+    [self addSubview:catView];
     
     
 }
 
 - (void) addGraphTwo {
-    NSLog(@"Graph 2 added");
+    UIView *catView = [[UIView alloc] initWithFrame:CGRectMake(20, 300, 320-40, 200- 40)];
+    
+    UIImage *image = [UIImage imageNamed:@"GraphTwo.jpg"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    
+    imageView.frame = catView.bounds;
+    
+    [catView addSubview:imageView];
+    
+    [self addSubview:catView];
+
+    
 }
 
 - (void) addGraphThree {

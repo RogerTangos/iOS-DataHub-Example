@@ -14,6 +14,8 @@
 		945628681A4214A900A2B9A7 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945628671A4214A900A2B9A7 /* AboutVC.m */; };
 		9456286E1A4224BA00A2B9A7 /* TabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456286D1A4224BA00A2B9A7 /* TabVC.m */; };
 		945628711A4225DB00A2B9A7 /* GraphVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945628701A4225DB00A2B9A7 /* GraphVC.m */; };
+		947378E51A42384E00DF933C /* GraphOne.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 947378E31A42384E00DF933C /* GraphOne.jpg */; };
+		947378E61A42384E00DF933C /* GraphTwo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 947378E41A42384E00DF933C /* GraphTwo.jpg */; };
 		9499C9641A321A27004CEB67 /* OAuthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499C9631A321A27004CEB67 /* OAuthVC.m */; };
 		94DFCF1C1A38BD6700874346 /* libOpenSense.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94DFCF1B1A38BD6700874346 /* libOpenSense.a */; };
 		94E3C4511A2F6BE600AFE1A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4501A2F6BE600AFE1A7 /* main.m */; };
@@ -83,6 +85,8 @@
 		9456286D1A4224BA00A2B9A7 /* TabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabVC.m; sourceTree = "<group>"; };
 		9456286F1A4225DB00A2B9A7 /* GraphVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphVC.h; sourceTree = "<group>"; };
 		945628701A4225DB00A2B9A7 /* GraphVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphVC.m; sourceTree = "<group>"; };
+		947378E31A42384E00DF933C /* GraphOne.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GraphOne.jpg; sourceTree = "<group>"; };
+		947378E41A42384E00DF933C /* GraphTwo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GraphTwo.jpg; sourceTree = "<group>"; };
 		9499C9621A321A27004CEB67 /* OAuthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthVC.h; path = OAuth/OAuthVC.h; sourceTree = "<group>"; };
 		9499C9631A321A27004CEB67 /* OAuthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuthVC.m; path = OAuth/OAuthVC.m; sourceTree = "<group>"; };
 		94DFCF101A38B9E300874346 /* OpenSense.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OpenSense.xcodeproj; path = OpenSense/OpenSense.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -237,6 +241,8 @@
 		94E3C44D1A2F6BE600AFE1A7 /* GetFit */ = {
 			isa = PBXGroup;
 			children = (
+				947378E31A42384E00DF933C /* GraphOne.jpg */,
+				947378E41A42384E00DF933C /* GraphTwo.jpg */,
 				94DFCF2D1A3A0CFF00874346 /* Page */,
 				94087B0F1A38A16A003F00D0 /* Sensor */,
 				9499C9591A320D18004CEB67 /* OAuth */,
@@ -476,8 +482,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				94E3C45A1A2F6BE600AFE1A7 /* Main.storyboard in Resources */,
+				947378E61A42384E00DF933C /* GraphTwo.jpg in Resources */,
 				94E3C45F1A2F6BE600AFE1A7 /* LaunchScreen.xib in Resources */,
 				94E3C45C1A2F6BE600AFE1A7 /* Images.xcassets in Resources */,
+				947378E51A42384E00DF933C /* GraphOne.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
