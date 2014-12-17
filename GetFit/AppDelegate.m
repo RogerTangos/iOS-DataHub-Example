@@ -26,11 +26,22 @@
     GraphVC *graphVC = [[GraphVC alloc] init];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    
     tabBarController.viewControllers = @[graphVC, aboutVC];
+    
+    
     
     self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    // add plus button
+    CGRect frame = [UIScreen mainScreen].bounds;
+    CGRect rightFrame = CGRectMake(frame.size.width - 170, 10, 200, 40);
+    UIButton *plusButton = [[UIButton alloc] initWithFrame:rightFrame];
+    [plusButton setTitle:@"add minutes +" forState:UIControlStateNormal];
+    [plusButton setTitleColor:[UIColor colorWithRed:0 green:0.478431 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+    [self.window.rootViewController.view addSubview:plusButton];
+
+    
     [self.window makeKeyAndVisible];
     
     return YES;
