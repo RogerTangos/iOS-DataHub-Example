@@ -20,6 +20,7 @@
 
 - (void) loadView {
     
+    [super loadView];
     // set some variables
     self.pageController = [self initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     self.pageController.dataSource = self;
