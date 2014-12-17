@@ -17,7 +17,6 @@
         
         [self addGraphOne];
         [self addGraphTwo];
-        [self addGraphThree];
 
         
     }
@@ -25,7 +24,7 @@
 }
 
 - (void) addGraphOne {
-    UIView *catView = [[UIView alloc] initWithFrame:CGRectMake(20, 50, 320-40, 200- 40)];
+    UIView *catView = [[UIView alloc] initWithFrame:CGRectMake(20, 60, 320-40, 200- 40)];
     
     UIImage *image = [UIImage imageNamed:@"GraphOne.jpg"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
@@ -40,7 +39,7 @@
 }
 
 - (void) addGraphTwo {
-    UIView *catView = [[UIView alloc] initWithFrame:CGRectMake(20, 300, 320-40, 200- 40)];
+    UIView *catView = [[UIView alloc] initWithFrame:CGRectMake(20, 250, 320-40, 200- 40)];
     
     UIImage *image = [UIImage imageNamed:@"GraphTwo.jpg"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
@@ -53,11 +52,6 @@
 
     
 }
-
-- (void) addGraphThree {
-    NSLog(@"Graph 3 added");
-}
-
 
 
 
