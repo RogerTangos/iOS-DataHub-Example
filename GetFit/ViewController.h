@@ -18,6 +18,7 @@
 - (IBAction)dbDelete:(id)sender;
 
 - (IBAction)getfitLogin:(id)sender;
+- (IBAction)showUI:(id)sender;
 
 
 

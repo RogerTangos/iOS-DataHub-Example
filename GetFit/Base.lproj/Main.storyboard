@@ -26,8 +26,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qO2-bm-ks2">
-                                <rect key="frame" x="200" y="172" width="200" height="30"/>
-                                <state key="normal" title="--> Grant Access to al_carter">
+                                <rect key="frame" x="213" y="172" width="174" height="30"/>
+                                <state key="normal" title="Grant Access to al_carter">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -71,42 +71,89 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VY0-kC-GeL">
-                                <rect key="frame" x="238" y="248" width="124" height="30"/>
-                                <state key="normal" title="--> Log into Getfit">
+                                <rect key="frame" x="251" y="248" width="98" height="30"/>
+                                <state key="normal" title="Log into Getfit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="getfitLogin:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="VXU-Sp-9D4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G59-MV-58B">
+                                <rect key="frame" x="228" y="323" width="145" height="30"/>
+                                <state key="normal" title="--> Scrape Form Info">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4F-zd-l9U">
+                                <rect key="frame" x="242" y="285" width="116" height="30"/>
+                                <state key="normal" title="--> Scrape Email">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hi-Ss-Hoi">
+                                <rect key="frame" x="258" y="361" width="84" height="30"/>
+                                <state key="normal" title="--> Show UI">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showUI:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="brA-0g-4zd"/>
+                                    <segue destination="j7f-fc-uEs" kind="show" id="OtX-K7-eS2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Qf5-Xj-A8M" firstAttribute="centerX" secondItem="SPV-SB-DIb" secondAttribute="centerX" id="2OM-f4-Txt"/>
+                            <constraint firstItem="5hi-Ss-Hoi" firstAttribute="top" secondItem="G59-MV-58B" secondAttribute="bottom" constant="8" id="5Mx-uC-Gg5"/>
+                            <constraint firstItem="5hi-Ss-Hoi" firstAttribute="top" secondItem="G59-MV-58B" secondAttribute="bottom" constant="8" id="8tE-up-CcA"/>
                             <constraint firstItem="VY0-kC-GeL" firstAttribute="top" secondItem="rZx-Oy-jjc" secondAttribute="bottom" constant="8" id="AG1-Q4-Kaf"/>
+                            <constraint firstItem="E4F-zd-l9U" firstAttribute="centerX" secondItem="VY0-kC-GeL" secondAttribute="centerX" id="AyE-VT-11C"/>
                             <constraint firstItem="Qf5-Xj-A8M" firstAttribute="centerX" secondItem="qO2-bm-ks2" secondAttribute="centerX" id="BsH-oC-J5H"/>
+                            <constraint firstItem="G59-MV-58B" firstAttribute="top" secondItem="E4F-zd-l9U" secondAttribute="bottom" constant="8" symbolic="YES" id="C5k-fE-T5P"/>
+                            <constraint firstItem="E4F-zd-l9U" firstAttribute="centerX" secondItem="G59-MV-58B" secondAttribute="centerX" id="CRY-32-clh"/>
+                            <constraint firstItem="E4F-zd-l9U" firstAttribute="top" secondItem="VY0-kC-GeL" secondAttribute="bottom" constant="7" id="Eo8-Xy-fmC"/>
                             <constraint firstItem="f1H-au-aEh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="FbP-c9-Id7"/>
                             <constraint firstItem="f1H-au-aEh" firstAttribute="centerX" secondItem="Qf5-Xj-A8M" secondAttribute="centerX" id="KoN-hC-TXm"/>
                             <constraint firstItem="Qf5-Xj-A8M" firstAttribute="centerX" secondItem="rZx-Oy-jjc" secondAttribute="centerX" id="LL0-Rj-ltR"/>
+                            <constraint firstItem="E4F-zd-l9U" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="Nl8-C1-wH8"/>
                             <constraint firstItem="SPV-SB-DIb" firstAttribute="top" secondItem="Qf5-Xj-A8M" secondAttribute="bottom" constant="8" id="Pp5-aA-SBU"/>
                             <constraint firstItem="qO2-bm-ks2" firstAttribute="top" secondItem="Lls-B8-WbC" secondAttribute="bottom" constant="8" id="R76-GV-f0K"/>
                             <constraint firstItem="rZx-Oy-jjc" firstAttribute="top" secondItem="qO2-bm-ks2" secondAttribute="bottom" constant="8" id="URQ-e1-Xl8"/>
                             <constraint firstItem="Qf5-Xj-A8M" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="38" id="Vts-45-aSE"/>
+                            <constraint firstItem="5hi-Ss-Hoi" firstAttribute="top" secondItem="VY0-kC-GeL" secondAttribute="bottom" constant="7" id="YYD-aT-uM4"/>
                             <constraint firstItem="Qf5-Xj-A8M" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="aIF-6u-VfX"/>
+                            <constraint firstItem="E4F-zd-l9U" firstAttribute="top" secondItem="VY0-kC-GeL" secondAttribute="bottom" constant="7" id="dq8-6O-u5l"/>
+                            <constraint firstItem="5hi-Ss-Hoi" firstAttribute="centerX" secondItem="rZx-Oy-jjc" secondAttribute="centerX" id="eu8-tk-Jgw"/>
                             <constraint firstItem="Qf5-Xj-A8M" firstAttribute="centerX" secondItem="Lls-B8-WbC" secondAttribute="centerX" id="ks1-Fx-SbO"/>
+                            <constraint firstItem="G59-MV-58B" firstAttribute="top" secondItem="E4F-zd-l9U" secondAttribute="bottom" constant="8" id="ksr-eT-fbO"/>
                             <constraint firstItem="VY0-kC-GeL" firstAttribute="centerX" secondItem="qO2-bm-ks2" secondAttribute="centerX" id="sm4-zn-M2H"/>
                             <constraint firstItem="Qf5-Xj-A8M" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="tA1-Su-5ZD"/>
                             <constraint firstItem="Lls-B8-WbC" firstAttribute="top" secondItem="SPV-SB-DIb" secondAttribute="bottom" constant="8" id="uvH-r9-Rcf"/>
+                            <constraint firstItem="E4F-zd-l9U" firstAttribute="centerX" secondItem="VY0-kC-GeL" secondAttribute="centerX" id="zKx-Yo-gru"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="tA1-Su-5ZD"/>
+                                <exclude reference="dq8-6O-u5l"/>
+                                <exclude reference="ksr-eT-fbO"/>
+                                <exclude reference="5Mx-uC-Gg5"/>
+                                <exclude reference="YYD-aT-uM4"/>
                             </mask>
                         </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-123" y="158"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="V18-LJ-pXo">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="j7f-fc-uEs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QdV-KO-30D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="735" y="152"/>
         </scene>
     </scenes>
 </document>

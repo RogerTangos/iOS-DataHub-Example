@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "OAuthVC.h"
+#import "PageVC.h"
+//#import "GraphView.h"
 
 #import "datahub.h"
 #import <THTTPClient.h>
@@ -52,7 +54,7 @@
         
         dhServer = [[DataHubClient alloc] initWithProtocol:protocol];
         
-        ConnectionParams *conparams = [[ConnectionParams alloc] initWithClient_id:@"foo" seq_id:nil user:@"al_carter" password:@"Gh6$U2!Y" repo_base:nil];
+        ConnectionParams *conparams = [[ConnectionParams alloc] initWithClient_id:nil seq_id:nil user:@"al_carter" password:@"Gh6$U2!Y" repo_base:nil];
         
         dhConnection = [dhServer open_connection:conparams];
         NSLog(@"Successfully establish db connection");
@@ -90,12 +92,13 @@
 }
 
 - (IBAction)dbGrant:(id)sender {
-    NSString *grantScript = @"grant all on getfit to alacarter;";
-
-    ResultSet *results =[dhServer execute_sql:dhConnection query:grantScript query_params:nil];
+    NSString *grantScript0 = @"grant usage on schema getfit to arcartercsail;";
+    NSString *grantScript1 = @"grant all on all tables in schema getfit to arcartercsail;";
     
-    NSLog(@"%@", results);
-    
+    ResultSet *results0 =[dhServer execute_sql:dhConnection query:grantScript0 query_params:nil];
+    ResultSet *results1 =[dhServer execute_sql:dhConnection query:grantScript1 query_params:nil];
+    NSLog(@"%@", results0);
+    NSLog(@"%@", results1);
 }
 
 - (IBAction)dbDelete:(id)sender {
@@ -115,6 +118,15 @@
     
     
     
+
+}
+
+- (IBAction)showUI:(id)sender {
+    NSLog(@"pageVC presented");
+//    GraphView *graphView = [[GraphView alloc] init];
+//    [self presentViewController:graphView animated:YES completion:nil];
+    PageVC *pageVC = [[PageVC alloc] init];
+    [self presentViewController:pageVC animated:YES completion:nil];
 
 }
 
