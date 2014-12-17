@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "PageVC.h"
 
+#import "AboutVC.h"
+#import "GraphVC.h"
+
 @interface AppDelegate ()
 
 @end
@@ -19,9 +22,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    PageVC *pageVC = [[PageVC alloc] init];
+    AboutVC *aboutVC = [[AboutVC alloc] init];
+    GraphVC *graphVC = [[GraphVC alloc] init];
     
-    self.window.rootViewController = pageVC;
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    
+    tabBarController.viewControllers = @[graphVC, aboutVC];
+    
+    self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     

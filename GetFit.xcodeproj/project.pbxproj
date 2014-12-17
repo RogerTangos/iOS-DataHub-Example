@@ -12,6 +12,8 @@
 		9456285D1A41FAD700A2B9A7 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456285C1A41FAD700A2B9A7 /* GraphView.m */; };
 		945628601A4203A200A2B9A7 /* AboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456285F1A4203A200A2B9A7 /* AboutView.m */; };
 		945628681A4214A900A2B9A7 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945628671A4214A900A2B9A7 /* AboutVC.m */; };
+		9456286E1A4224BA00A2B9A7 /* TabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456286D1A4224BA00A2B9A7 /* TabVC.m */; };
+		945628711A4225DB00A2B9A7 /* GraphVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945628701A4225DB00A2B9A7 /* GraphVC.m */; };
 		9499C9641A321A27004CEB67 /* OAuthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499C9631A321A27004CEB67 /* OAuthVC.m */; };
 		94DFCF1C1A38BD6700874346 /* libOpenSense.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94DFCF1B1A38BD6700874346 /* libOpenSense.a */; };
 		94E3C4511A2F6BE600AFE1A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4501A2F6BE600AFE1A7 /* main.m */; };
@@ -77,6 +79,10 @@
 		9456285F1A4203A200A2B9A7 /* AboutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutView.m; sourceTree = "<group>"; };
 		945628661A4214A900A2B9A7 /* AboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutVC.h; sourceTree = "<group>"; };
 		945628671A4214A900A2B9A7 /* AboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutVC.m; sourceTree = "<group>"; };
+		9456286C1A4224BA00A2B9A7 /* TabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabVC.h; sourceTree = "<group>"; };
+		9456286D1A4224BA00A2B9A7 /* TabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabVC.m; sourceTree = "<group>"; };
+		9456286F1A4225DB00A2B9A7 /* GraphVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphVC.h; sourceTree = "<group>"; };
+		945628701A4225DB00A2B9A7 /* GraphVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphVC.m; sourceTree = "<group>"; };
 		9499C9621A321A27004CEB67 /* OAuthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthVC.h; path = OAuth/OAuthVC.h; sourceTree = "<group>"; };
 		9499C9631A321A27004CEB67 /* OAuthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuthVC.m; path = OAuth/OAuthVC.m; sourceTree = "<group>"; };
 		94DFCF101A38B9E300874346 /* OpenSense.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OpenSense.xcodeproj; path = OpenSense/OpenSense.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -199,6 +205,10 @@
 				9456285C1A41FAD700A2B9A7 /* GraphView.m */,
 				9456285E1A4203A200A2B9A7 /* AboutView.h */,
 				9456285F1A4203A200A2B9A7 /* AboutView.m */,
+				9456286C1A4224BA00A2B9A7 /* TabVC.h */,
+				9456286D1A4224BA00A2B9A7 /* TabVC.m */,
+				9456286F1A4225DB00A2B9A7 /* GraphVC.h */,
+				945628701A4225DB00A2B9A7 /* GraphVC.m */,
 			);
 			name = Page;
 			sourceTree = "<group>";
@@ -502,6 +512,7 @@
 				94E3C4541A2F6BE600AFE1A7 /* AppDelegate.m in Sources */,
 				94E3C4B61A2FA93C00AFE1A7 /* TSocketClient.m in Sources */,
 				94E3C4AA1A2FA93C00AFE1A7 /* TMultiplexedProtocol.m in Sources */,
+				9456286E1A4224BA00A2B9A7 /* TabVC.m in Sources */,
 				94E3C4511A2F6BE600AFE1A7 /* main.m in Sources */,
 				94E3C4B91A2FA93C00AFE1A7 /* TTransportException.m in Sources */,
 				9499C9641A321A27004CEB67 /* OAuthVC.m in Sources */,
@@ -509,6 +520,7 @@
 				94E3C4AE1A2FA93C00AFE1A7 /* TSocketServer.m in Sources */,
 				94E3C4B31A2FA93C00AFE1A7 /* TMemoryBuffer.m in Sources */,
 				94E3C4B51A2FA93C00AFE1A7 /* TNSStreamTransport.m in Sources */,
+				945628711A4225DB00A2B9A7 /* GraphVC.m in Sources */,
 				94E3C4B01A2FA93C00AFE1A7 /* TException.m in Sources */,
 				9456285D1A41FAD700A2B9A7 /* GraphView.m in Sources */,
 				94E3C4B81A2FA93C00AFE1A7 /* TSSLSocketException.m in Sources */,

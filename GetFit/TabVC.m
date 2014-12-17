@@ -1,38 +1,18 @@
 //
-//  AboutVC.m
+//  TabVC.m
 //  GetFit
 //
 //  Created by Albert Carter on 12/17/14.
 //  Copyright (c) 2014 CSAIL Big Data Initiative. All rights reserved.
 //
 
-#import "AboutVC.h"
-#import "AboutView.h"
+#import "TabVC.h"
 
-@interface AboutVC ()
+@interface TabVC ()
 
 @end
 
-@implementation AboutVC
-
-- (void) loadView {
-    [super loadView];
-    
-    CGRect frame = [UIScreen mainScreen].bounds;
-    AboutView *aboutView = [[AboutView alloc] initWithFrame:frame];
-    self.view = aboutView;
-}
-
-- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil
-                           bundle:nibBundleOrNil];
-    
-    if (self) {
-        self.tabBarItem.title = @"About Project";
-    }
-    return self;
-    
-}
+@implementation TabVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
