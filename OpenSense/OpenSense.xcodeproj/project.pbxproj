@@ -443,7 +443,7 @@
 			name = OpenSenseTests;
 			productName = OpenSenseTests;
 			productReference = 3DDED6AC167D04CF006DE4F8 /* OpenSenseTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 

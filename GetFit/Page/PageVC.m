@@ -7,6 +7,7 @@
 //
 
 #import "PageVC.h"
+#import "AboutVC.h"
 #import "GraphView.h"
 #import "AboutView.h"
 
@@ -21,23 +22,28 @@
 - (void) loadView {
     
     [super loadView];
-    // set some variables
+    // create the pageController
     self.pageController = [self initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     self.pageController.dataSource = self;
-    [[self.pageController view] setFrame:[[self view] bounds]];
+    [self.pageController.view setFrame:[[self view] bounds]];
     
     
     
-    // create a view
-    CGRect frame = [UIScreen mainScreen].bounds;
-    GraphView *graphView = [[GraphView alloc] initWithFrame:frame];
+    // create view controllers
+    AboutVC *aboutVC = [[AboutVC alloc] init];
     
+    // add VC's to arr, add arr to the pageController
+    NSArray *viewControllers = [NSArray arrayWithObjects:aboutVC, nil];
+    [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
-    
+    // add the page turn thingies
+    [self addChildViewController:self.pageController];
+    UIView *tempView = [self.pageController view];
+    [self.view addSubview:tempView];
+//    [self.pageController didMoveToParentViewController:self];
     
 //    [self.view addSubview:graphView];
-    self.view = graphView;
-//     ad graphView;
+//    self.view = aboutVC.view;
 }
 
 - (void)viewDidLoad {
@@ -52,6 +58,7 @@
 
 
 - (UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    
     return self;
 }
 
@@ -59,5 +66,12 @@
     return self;
 }
 
+- (NSInteger) presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+    return 2;
+}
+
+- (NSInteger) presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+    return 0;
+}
 
 @end

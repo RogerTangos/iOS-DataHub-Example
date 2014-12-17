@@ -17,15 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    PageVC *pvc = [[PageVC alloc] init];
+    PageVC *pageVC = [[PageVC alloc] init];
     
-    self.window.rootViewController = pvc;
+    self.window.rootViewController = pageVC;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
     
     return YES;
 }
