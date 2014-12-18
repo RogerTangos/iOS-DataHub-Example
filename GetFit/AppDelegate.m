@@ -28,8 +28,6 @@
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = @[graphVC, aboutVC];
     
-    
-    
     self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     
@@ -40,7 +38,7 @@
     [plusButton setTitle:@"add minutes +" forState:UIControlStateNormal];
     [plusButton setTitleColor:[UIColor colorWithRed:0 green:0.478431 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
     [self.window.rootViewController.view addSubview:plusButton];
-
+    
     
     [self.window makeKeyAndVisible];
     

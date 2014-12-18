@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		94087B121A38A18A003F00D0 /* SensorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94087B111A38A18A003F00D0 /* SensorVC.m */; };
 		945628581A41D14700A2B9A7 /* PageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945628571A41D14700A2B9A7 /* PageVC.m */; };
 		9456285D1A41FAD700A2B9A7 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456285C1A41FAD700A2B9A7 /* GraphView.m */; };
 		945628601A4203A200A2B9A7 /* AboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456285F1A4203A200A2B9A7 /* AboutView.m */; };
@@ -71,8 +70,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		94087B101A38A18A003F00D0 /* SensorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SensorVC.h; path = Sensor/SensorVC.h; sourceTree = "<group>"; };
-		94087B111A38A18A003F00D0 /* SensorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SensorVC.m; path = Sensor/SensorVC.m; sourceTree = "<group>"; };
 		945628561A41D14700A2B9A7 /* PageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageVC.h; path = Page/PageVC.h; sourceTree = "<group>"; };
 		945628571A41D14700A2B9A7 /* PageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageVC.m; path = Page/PageVC.m; sourceTree = "<group>"; };
 		9456285B1A41FAD700A2B9A7 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
@@ -171,15 +168,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		94087B0F1A38A16A003F00D0 /* Sensor */ = {
-			isa = PBXGroup;
-			children = (
-				94087B101A38A18A003F00D0 /* SensorVC.h */,
-				94087B111A38A18A003F00D0 /* SensorVC.m */,
-			);
-			name = Sensor;
-			sourceTree = "<group>";
-		};
 		9499C9591A320D18004CEB67 /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,7 +232,6 @@
 				947378E31A42384E00DF933C /* GraphOne.jpg */,
 				947378E41A42384E00DF933C /* GraphTwo.jpg */,
 				94DFCF2D1A3A0CFF00874346 /* Page */,
-				94087B0F1A38A16A003F00D0 /* Sensor */,
 				9499C9591A320D18004CEB67 /* OAuth */,
 				94E3C4521A2F6BE600AFE1A7 /* AppDelegate.h */,
 				94E3C4531A2F6BE600AFE1A7 /* AppDelegate.m */,
@@ -512,7 +499,6 @@
 				94E3C4AB1A2FA93C00AFE1A7 /* TProtocolDecorator.m in Sources */,
 				94E3C4571A2F6BE600AFE1A7 /* ViewController.m in Sources */,
 				94E3C4B21A2FA93C00AFE1A7 /* THTTPClient.m in Sources */,
-				94087B121A38A18A003F00D0 /* SensorVC.m in Sources */,
 				94E3C4781A2FA86F00AFE1A7 /* datahub.m in Sources */,
 				94E3C4AC1A2FA93C00AFE1A7 /* TProtocolException.m in Sources */,
 				945628681A4214A900A2B9A7 /* AboutVC.m in Sources */,
