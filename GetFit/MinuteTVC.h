@@ -1,5 +1,5 @@
 //
-//  MinuteVC.h
+//  MinuteTVC.h
 //  GetFit
 //
 //  Created by Albert Carter on 12/18/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MinuteVC : UIViewController
+@interface MinuteTVC : UITableViewController
 
 @end

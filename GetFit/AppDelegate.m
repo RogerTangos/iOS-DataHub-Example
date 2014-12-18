@@ -11,7 +11,7 @@
 
 #import "AboutVC.h"
 #import "GraphVC.h"
-#import "MinuteVC.h"
+#import "MinuteTVC.h"
 
 @interface AppDelegate ()
 
@@ -48,13 +48,13 @@
 }
 
 - (void)pushMinuteVC {
-    NSLog(@"PushMinuteVC Called");
-    MinuteVC *minuteVC = [[MinuteVC alloc] initWithNibName:@"MinuteVC" bundle:nil];
+    NSLog(@"Pus hMinuteTVC Called");
+    MinuteTVC *minuteTVC = [[MinuteTVC alloc] init];
     
-//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:];
-    minuteVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:minuteTVC];
+    navController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     
-    [self.window.rootViewController presentViewController:minuteVC animated:YES completion:nil];
+    [self.window.rootViewController presentViewController:navController animated:YES completion:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
