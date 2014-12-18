@@ -48,7 +48,6 @@
 }
 
 - (void)pushMinuteVC {
-    NSLog(@"Pus hMinuteTVC Called");
     MinuteTVC *minuteTVC = [[MinuteTVC alloc] init];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:minuteTVC];
