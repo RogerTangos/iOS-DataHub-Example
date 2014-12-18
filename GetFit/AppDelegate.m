@@ -11,6 +11,7 @@
 
 #import "AboutVC.h"
 #import "GraphVC.h"
+#import "MinuteVC.h"
 
 @interface AppDelegate ()
 
@@ -37,12 +38,23 @@
     UIButton *plusButton = [[UIButton alloc] initWithFrame:rightFrame];
     [plusButton setTitle:@"add minutes +" forState:UIControlStateNormal];
     [plusButton setTitleColor:[UIColor colorWithRed:0 green:0.478431 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+    [plusButton addTarget:self action:@selector(pushMinuteVC) forControlEvents:UIControlEventTouchUpInside];
     [self.window.rootViewController.view addSubview:plusButton];
     
     
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+- (void)pushMinuteVC {
+    NSLog(@"PushMinuteVC Called");
+    MinuteVC *minuteVC = [[MinuteVC alloc] initWithNibName:@"MinuteVC" bundle:nil];
+    
+//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:];
+    minuteVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    
+    [self.window.rootViewController presentViewController:minuteVC animated:YES completion:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

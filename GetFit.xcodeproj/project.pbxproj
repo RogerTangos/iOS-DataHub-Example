@@ -15,6 +15,8 @@
 		945628711A4225DB00A2B9A7 /* GraphVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945628701A4225DB00A2B9A7 /* GraphVC.m */; };
 		947378E51A42384E00DF933C /* GraphOne.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 947378E31A42384E00DF933C /* GraphOne.jpg */; };
 		947378E61A42384E00DF933C /* GraphTwo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 947378E41A42384E00DF933C /* GraphTwo.jpg */; };
+		947378EA1A432FD800DF933C /* MinuteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947378E81A432FD800DF933C /* MinuteVC.m */; };
+		947378EB1A432FD800DF933C /* MinuteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947378E91A432FD800DF933C /* MinuteVC.xib */; };
 		9499C9641A321A27004CEB67 /* OAuthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499C9631A321A27004CEB67 /* OAuthVC.m */; };
 		94DFCF1C1A38BD6700874346 /* libOpenSense.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94DFCF1B1A38BD6700874346 /* libOpenSense.a */; };
 		94E3C4511A2F6BE600AFE1A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4501A2F6BE600AFE1A7 /* main.m */; };
@@ -84,6 +86,9 @@
 		945628701A4225DB00A2B9A7 /* GraphVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphVC.m; sourceTree = "<group>"; };
 		947378E31A42384E00DF933C /* GraphOne.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GraphOne.jpg; sourceTree = "<group>"; };
 		947378E41A42384E00DF933C /* GraphTwo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GraphTwo.jpg; sourceTree = "<group>"; };
+		947378E71A432FD800DF933C /* MinuteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinuteVC.h; sourceTree = "<group>"; };
+		947378E81A432FD800DF933C /* MinuteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinuteVC.m; sourceTree = "<group>"; };
+		947378E91A432FD800DF933C /* MinuteVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MinuteVC.xib; sourceTree = "<group>"; };
 		9499C9621A321A27004CEB67 /* OAuthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthVC.h; path = OAuth/OAuthVC.h; sourceTree = "<group>"; };
 		9499C9631A321A27004CEB67 /* OAuthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuthVC.m; path = OAuth/OAuthVC.m; sourceTree = "<group>"; };
 		94DFCF101A38B9E300874346 /* OpenSense.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OpenSense.xcodeproj; path = OpenSense/OpenSense.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -168,6 +173,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		947378EC1A432FDF00DF933C /* Minute */ = {
+			isa = PBXGroup;
+			children = (
+				947378E71A432FD800DF933C /* MinuteVC.h */,
+				947378E81A432FD800DF933C /* MinuteVC.m */,
+				947378E91A432FD800DF933C /* MinuteVC.xib */,
+			);
+			name = Minute;
+			sourceTree = "<group>";
+		};
 		9499C9591A320D18004CEB67 /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +250,7 @@
 				9499C9591A320D18004CEB67 /* OAuth */,
 				94E3C4521A2F6BE600AFE1A7 /* AppDelegate.h */,
 				94E3C4531A2F6BE600AFE1A7 /* AppDelegate.m */,
+				947378EC1A432FDF00DF933C /* Minute */,
 				94E3C4551A2F6BE600AFE1A7 /* ViewController.h */,
 				94E3C4561A2F6BE600AFE1A7 /* ViewController.m */,
 				94E3C4581A2F6BE600AFE1A7 /* Main.storyboard */,
@@ -468,6 +484,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				947378EB1A432FD800DF933C /* MinuteVC.xib in Resources */,
 				94E3C45A1A2F6BE600AFE1A7 /* Main.storyboard in Resources */,
 				947378E61A42384E00DF933C /* GraphTwo.jpg in Resources */,
 				94E3C45F1A2F6BE600AFE1A7 /* LaunchScreen.xib in Resources */,
@@ -518,6 +535,7 @@
 				94E3C4B01A2FA93C00AFE1A7 /* TException.m in Sources */,
 				9456285D1A41FAD700A2B9A7 /* GraphView.m in Sources */,
 				94E3C4B81A2FA93C00AFE1A7 /* TSSLSocketException.m in Sources */,
+				947378EA1A432FD800DF933C /* MinuteVC.m in Sources */,
 				94E3C4AD1A2FA93C00AFE1A7 /* TProtocolUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
