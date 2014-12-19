@@ -10,6 +10,7 @@
 
 @interface MinuteTVC () {
     NSInteger numberOfEntries;
+    NSString *pickerRevealed;
 }
 
 @end
@@ -26,6 +27,9 @@
                                                                    style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
     self.navigationItem.rightBarButtonItem = rightButton;
     self.navigationItem.leftBarButtonItem = leftButton;
+    
+    // by default, none of the pickers are revealed
+    pickerRevealed = @"";
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -58,13 +62,16 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: // Activity
+            [self exposePicker:indexPath];
             break;
         case 2: // Intensity
+            [self exposePicker:indexPath];
             break;
         case 4: // duration
+            [self exposePicker:indexPath];
             break;
         case 6: // End time
-            [self callDatePicker];
+            [self exposePicker:indexPath];
             break;
         default:
             break;
@@ -124,17 +131,65 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // odd numbered cells are placeholders for pickers
-    if (indexPath.row % 2 == 1) {
-        return 0;
+    // odd numbered cells are placeholders for pickers. Pickers are revealed if pickerRevealed has their string
+    if (indexPath.row %2 == 1) {
+        if (indexPath.row == 1 && [pickerRevealed isEqualToString:@"activity"]) {
+            return 100;
+        } else if (indexPath.row == 3 && [pickerRevealed isEqualToString:@"intensity"]) {
+            return 100;
+        } else if (indexPath.row == 5 && [pickerRevealed isEqualToString:@"duration"]) {
+            return 100;
+        } else if (indexPath.row == 3 && [pickerRevealed isEqualToString:@"end time"]) {
+            return 100;
+        } else {
+            return 0;
+        }
     }
+    
     
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
     
 
-- (void) callDatePicker {
-    NSLog(@"datepicker called");
+- (void) exposePicker:(NSIndexPath *)indexPath {
+    
+    
+    // get the picker's path
+    NSIndexPath *pickerPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section];
+    
+    // If there is no pickerRevealed, set one. If there already is, close it.
+    if ([pickerRevealed length] == 0) {
+        [self setPickerRevealed:pickerPath];
+    } else {
+        pickerRevealed = @"";
+    }
+    
+    // reveal the picker cell and recompute it's height
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:pickerPath];
+    cell.hidden = NO;
+    [self.tableView reloadRowsAtIndexPaths:@[pickerPath] withRowAnimation:UITableViewRowAnimationTop];
+}
+
+- (void) setPickerRevealed:(NSIndexPath *)indexPath {
+    // helper method to determine which picker should be revealed after a click
+    NSLog(@"%d", indexPath.row);
+    
+    switch (indexPath.row) {
+        case 1:
+            pickerRevealed = @"activity";
+            break;
+        case 3:
+            pickerRevealed = @"intensity";
+            break;
+        case 5:
+            pickerRevealed = @"duration";
+            break;
+        case 7:
+            pickerRevealed = @"end time";
+            break;
+        default:
+            break;
+    }
 }
     
     
