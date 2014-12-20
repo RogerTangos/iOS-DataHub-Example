@@ -11,8 +11,13 @@
 @interface MinuteTVC () {
     NSInteger numberOfEntries;
     NSString *pickerRevealed;
+    NSInteger sectionPicked;
+    
+    UIPickerView * activityPicker;
+    UIPickerView * intensityPicker;
+    UIPickerView * durationPicker;
+    UIDatePicker * endTimePicker;
 }
-
 @end
 
 @implementation MinuteTVC
@@ -31,6 +36,17 @@
     // by default, none of the pickers are revealed
     pickerRevealed = @"";
     
+    // create the pickers
+    // activityPicker
+    activityPicker = [[UIPickerView alloc] init];
+    intensityPicker = [[UIPickerView alloc] init];
+    durationPicker = [[UIPickerView alloc] init];
+    
+//    endTimePicker = [[UIDatePicker alloc] init];
+//    endTimePicker.datePickerMode = UIDatePickerModeDateAndTime;
+//    endTimePicker.maximumDate= [NSDate date];
+//    [endTimePicker addTarget:self action:nil forControlEvents:UIControlEventValueChanged];
+//    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 }
@@ -60,22 +76,12 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case 0: // Activity
-            [self exposePicker:indexPath];
-            break;
-        case 2: // Intensity
-            [self exposePicker:indexPath];
-            break;
-        case 4: // duration
-            [self exposePicker:indexPath];
-            break;
-        case 6: // End time
-            [self exposePicker:indexPath];
-            break;
-        default:
-            break;
+    sectionPicked = indexPath.section;
+    
+    if (indexPath.row %2 == 0) {
+        [self togglePicker:indexPath];
     }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -83,76 +89,102 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
-    } else {
-        NSLog(@"Old Cell");
     }
     
+    // pickers are hidden/shown in setCellVisibilityAtIndexPath and heightForRowAtIndexPath
     switch (indexPath.row) {
         case 0:
             cell.textLabel.text = @"Activity";
             cell.detailTextLabel.text = @"select an activity";
             break;
         case 1:
-            cell.contentView.hidden = YES;
-            cell.textLabel.text = @"placeholder for activity picker";
+//            cell.accessoryView = activityPicker;
+            cell.textLabel.text = @"activity placeholder";
             break;
         case 2:
             cell.textLabel.text = @"Intensity";
             cell.detailTextLabel.text = @"medium";
             break;
         case 3:
-            cell.contentView.hidden = YES;
-            cell.textLabel.text = @"placeholder for intensity picker";
+            cell.accessoryView = intensityPicker;
             break;
         case 4:
             cell.textLabel.text = @"Duration";
             cell.detailTextLabel.text = @"15 min";
             break;
         case 5:
-            cell.contentView.hidden = YES;
-            cell.textLabel.text = @"placeholder for duration picker";
+            cell.accessoryView = durationPicker;
             break;
         case 6:
-            cell.textLabel.text = @"Start Time";
+            cell.textLabel.text = @"End Time";
             cell.detailTextLabel.text = @"Dec 18, 2014\t8:00PM";
             break;
         case 7:
-            cell.contentView.hidden = YES;
-            cell.textLabel.text = @"placeholder for date picker";
+            endTimePicker = [[UIDatePicker alloc] init];
+            endTimePicker.datePickerMode = UIDatePickerModeDateAndTime;
+            endTimePicker.maximumDate= [NSDate date];
+            [endTimePicker addTarget:self action:nil forControlEvents:UIControlEventValueChanged];
+            
+            cell.accessoryView = endTimePicker;
             break;
-        default: break;
+        default:
+            break;
     }
- 
+    // hide the picker cells if necessary, and return
+    [self setCellVisibilityAtIndexPath:cell withIndexPath:indexPath];
+    return cell;
+}
+
+- (UITableViewCell *) setCellVisibilityAtIndexPath:(UITableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath {
+    // mimics heightForRowAtIndexPath.
+    
+    if (indexPath.row % 2 == 1){
+        if (indexPath.section == sectionPicked) {
+            // the section must match
+            // odd numbered cells are hidden by default
+            cell.hidden = YES;
+            
+            if (indexPath.row == 1 && [pickerRevealed isEqualToString:@"activity"]) {
+                cell.hidden = NO;
+            } else if (indexPath.row == 3 && [pickerRevealed isEqualToString:@"intensity"]){
+                cell.hidden = NO;
+            } else if (indexPath.row == 5 && [pickerRevealed isEqualToString:@"duration"]){
+                cell.hidden = NO;
+            } else if (indexPath.row == 7 && [pickerRevealed isEqualToString:@"end time"]) {
+                cell.hidden = NO;
+            } else {
+                cell.hidden = YES;
+            }
+        }
+    }
+
     return cell;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     // odd numbered cells are placeholders for pickers. Pickers are revealed if pickerRevealed has their string
-    if (indexPath.row %2 == 1) {
+    if (indexPath.row % 2 == 1) {
         if (indexPath.row == 1 && [pickerRevealed isEqualToString:@"activity"]) {
             return 100;
         } else if (indexPath.row == 3 && [pickerRevealed isEqualToString:@"intensity"]) {
             return 100;
         } else if (indexPath.row == 5 && [pickerRevealed isEqualToString:@"duration"]) {
             return 100;
-        } else if (indexPath.row == 3 && [pickerRevealed isEqualToString:@"end time"]) {
-            return 100;
+        } else if (indexPath.row == 7 && [pickerRevealed isEqualToString:@"end time"]) {
+            return 200;
         } else {
             return 0;
         }
     }
     
-    
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
     
 
-- (void) exposePicker:(NSIndexPath *)indexPath {
-    
+- (void) togglePicker:(NSIndexPath *)indexPath {
     
     // get the picker's path
     NSIndexPath *pickerPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section];
@@ -160,19 +192,21 @@
     // If there is no pickerRevealed, set one. If there already is, close it.
     if ([pickerRevealed length] == 0) {
         [self setPickerRevealed:pickerPath];
-    } else {
+    } else { // clear the picker revealed, and hide all
         pickerRevealed = @"";
+        activityPicker.hidden = YES;
+        intensityPicker.hidden = YES;
+        durationPicker.hidden = YES;
+        endTimePicker.hidden = YES;
+        
     }
     
-    // reveal the picker cell and recompute it's height
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:pickerPath];
-    cell.hidden = NO;
+    // recompute the cell height
     [self.tableView reloadRowsAtIndexPaths:@[pickerPath] withRowAnimation:UITableViewRowAnimationTop];
 }
 
 - (void) setPickerRevealed:(NSIndexPath *)indexPath {
     // helper method to determine which picker should be revealed after a click
-    NSLog(@"%d", indexPath.row);
     
     switch (indexPath.row) {
         case 1:
@@ -186,13 +220,13 @@
             break;
         case 7:
             pickerRevealed = @"end time";
+            endTimePicker.hidden = NO;
             break;
         default:
             break;
     }
 }
-    
-    
+
 
 - (void) dismiss {
     [self dismissViewControllerAnimated:YES completion:nil];
