@@ -23,13 +23,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    AboutVC *aboutVC = [[AboutVC alloc] init];
-    GraphVC *graphVC = [[GraphVC alloc] init];
+//    AboutVC *aboutVC = [[AboutVC alloc] init];
+//    GraphVC *graphVC = [[GraphVC alloc] init];
     
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[graphVC, aboutVC];
+//    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+//    tabBarController.viewControllers = @[graphVC, aboutVC];
+    PageVC *pageVC = [[PageVC alloc] init];
     
-    self.window.rootViewController = tabBarController;
+    self.window.rootViewController = pageVC;
     self.window.backgroundColor = [UIColor whiteColor];
     
     // add plus button
