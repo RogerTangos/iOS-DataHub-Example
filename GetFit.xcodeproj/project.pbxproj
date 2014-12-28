@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		944A44631A4F7E37009FA078 /* ActivityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944A44621A4F7E37009FA078 /* ActivityPickerView.m */; };
 		945628581A41D14700A2B9A7 /* PageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945628571A41D14700A2B9A7 /* PageVC.m */; };
 		9456285D1A41FAD700A2B9A7 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456285C1A41FAD700A2B9A7 /* GraphView.m */; };
 		945628601A4203A200A2B9A7 /* AboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456285F1A4203A200A2B9A7 /* AboutView.m */; };
@@ -71,6 +72,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		944A44611A4F7E37009FA078 /* ActivityPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityPickerView.h; sourceTree = "<group>"; };
+		944A44621A4F7E37009FA078 /* ActivityPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityPickerView.m; sourceTree = "<group>"; };
 		945628561A41D14700A2B9A7 /* PageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageVC.h; path = Page/PageVC.h; sourceTree = "<group>"; };
 		945628571A41D14700A2B9A7 /* PageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageVC.m; path = Page/PageVC.m; sourceTree = "<group>"; };
 		9456285B1A41FAD700A2B9A7 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
@@ -176,6 +179,8 @@
 			children = (
 				947378F31A435A9200DF933C /* MinuteTVC.h */,
 				947378F41A435A9200DF933C /* MinuteTVC.m */,
+				944A44611A4F7E37009FA078 /* ActivityPickerView.h */,
+				944A44621A4F7E37009FA078 /* ActivityPickerView.m */,
 			);
 			name = Minute;
 			sourceTree = "<group>";
@@ -525,6 +530,7 @@
 				947378F51A435A9200DF933C /* MinuteTVC.m in Sources */,
 				9499C9641A321A27004CEB67 /* OAuthVC.m in Sources */,
 				945628581A41D14700A2B9A7 /* PageVC.m in Sources */,
+				944A44631A4F7E37009FA078 /* ActivityPickerView.m in Sources */,
 				94E3C4AE1A2FA93C00AFE1A7 /* TSocketServer.m in Sources */,
 				94E3C4B31A2FA93C00AFE1A7 /* TMemoryBuffer.m in Sources */,
 				94E3C4B51A2FA93C00AFE1A7 /* TNSStreamTransport.m in Sources */,

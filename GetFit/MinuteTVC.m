@@ -9,6 +9,7 @@
 // YOU'RE ADDING Activity Pickers the new rows.
 
 #import "MinuteTVC.h"
+#import "ActivityPickerView.h"
 
 @interface MinuteTVC () {
     NSInteger numberOfEntries;
@@ -20,6 +21,10 @@
     UIPickerView * intensityPicker;
     UIPickerView * durationPicker;
     UIDatePicker * endTimePicker;
+    
+    NSArray * activities;
+    NSArray * intensities;
+    NSArray * durations;
 }
 @end
 
@@ -36,13 +41,25 @@
     self.navigationItem.rightBarButtonItem = rightButton;
     self.navigationItem.leftBarButtonItem = leftButton;
     
+    
+    // populate the picker option arrays
+    activities = [[NSArray alloc] initWithObjects:@"Aerobics", @"American football", @"Badminton", @"Ballet", @"Bandy", @"Baseball", @"Basketball", @"Beach Volleyball", @"Body Pump", @"Bowling", @"Boxing", @"Circuit Training", @"Cleaning", @"Climbing", @"Cricket", @"Cross country skiing", @"Curling", @"Cycling", @"Dancing", @"Disk Ultimate", @"Downhill skiing", @"Eliptical Training", @"Fencing", @"Floorball", @"Golfing", @"Gym Training", @"Handball", @"Hockey", @"Indoor Cycling", @"Kayaking", @"Kettlebell", @"Kite Surfing", @"Lacrosse", @"Marshall Arts", @"Paddling", @"Paintball", @"Parkour", @"Petanque", @"Pilates", @"Polo", @"Raquetball", @"Riding", @"Roller Blading", @"Roller Skiing", @"Roller Skating", @"Rowing", @"Rugby", @"Running", @"Running on Treadmill", @"Skuba Diving", @"Skateboarding", @"Snowboarding", @"Snow Shoeing", @"Soccer", @"Spinning", @"Squash", @"Stair Climbing", @"Stretching", @"Surfing", @"Swimming", @"Table Tennis", @"Tennis", @"Volleyball", @"Walking", @"Walking on Treadmill", @"Water Polo", @"Weight Training", @"Wheelchair", @"Wind Surfing", @"Wrestling", @"Yoga", @"Zumba", nil];
+    
+    intensities = [[NSArray alloc] initWithObjects:@"High", @"Medium", @"Low", nil];
+    
+    durations = [[NSArray alloc] initWithObjects:@"5 min", @"10 min", @"15 min", @"20 min", @"25 min", @"30 min", @"35 min", @"40 min", @"45 min", @"50 min", @"55 min", @"1 hr  0 min", @"1 hr  5 min", @"1 hr 10 min", @"1 hr 15 min", @"1 hr 20 min", @"1 hr 25 min", @"1 hr 30 min", @"1 hr 35 min", @"1 hr 40 min", @"1 hr 45 min", @"1 hr 50 min", @"1 hr 55 min", @"2 hr  0 min", @"2 hr 15 min", @"2 hr 30 min", @"2 hr 45 min", @"3 hr  0 min", @"3 hr 15 min", @"3 hr 30 min", @"3 hr 45 min", @"4 hr  0 min", @"4 hr 15 min", @"4 hr 30 min", @"4 hr 45 min", @"5 hr  0 min",nil];
+    
     // create the pickers
-    // activityPicker
     activityPicker = [[UIPickerView alloc] init];
     intensityPicker = [[UIPickerView alloc] init];
     durationPicker = [[UIPickerView alloc] init];
     
-//
+    [activityPicker setDelegate:self];
+    [intensityPicker setDelegate:self];
+    [durationPicker setDelegate:self];
+    
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 }
@@ -58,12 +75,54 @@
     minuteSetup = YES;
     
     endTimePicker = [[UIDatePicker alloc] init];
-    endTimePicker.hidden = YES;
     endTimePicker.datePickerMode = UIDatePickerModeDateAndTime;
     endTimePicker.maximumDate= [NSDate date];
     [endTimePicker addTarget:self action:nil forControlEvents:UIControlEventValueChanged];
-    
+    }
+
+- (void) dismiss {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - Picker view DataSource/Delegate Methods
+
+- (NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    NSLog(@"titleForRow is being called");
+    switch (pickerPath.row) {
+        case 1:
+            return [activities objectAtIndex:row];
+        case 2:
+            return [intensities objectAtIndex:row];
+        case 3:
+            return [durations objectAtIndex:row];
+        default:
+            return nil;
+    }
+}
+
+- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    NSLog(@"Selected activity/thing: %@. Index of selected row: %i", [activities objectAtIndex:row], row);
+}
+
+- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
+    NSLog(@"The pickerPath.row is: %d", pickerPath.row);
+    switch (pickerPath.row) {
+        case 1:
+            return [activities count];
+        case 2:
+            return [intensities count];
+        case 3:
+            return [durations count];
+        default:
+            return 4;
+    }
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
+    return 1;
+}
+
 
 #pragma mark - Table view data source
 
@@ -88,7 +147,6 @@
     // create or delete the picker row.
     // if creating a row, assign the picker path
     if (minuteSetup) {
-        NSLog(@"new picker simple case:\nindexPath: %d, pickerPath: %d", indexPath.row, pickerPath.row);
         minuteSetup = NO;
         pickerPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section];
         [self.tableView insertRowsAtIndexPaths:@[pickerPath] withRowAnimation:UITableViewRowAnimationMiddle];
@@ -96,7 +154,6 @@
         // picker is open, and user has clicked a row not related to the picker
         
         // delete the old picker
-        NSLog(@"delete the old picker:\nindexPath: %d, pickerPath: %d", indexPath.row, pickerPath.row);
         minuteSetup = YES;
         NSIndexPath * tempPickerPath = [NSIndexPath indexPathForRow:pickerPath.row inSection:pickerPath.section];
         pickerPath = nil;
@@ -110,18 +167,14 @@
         }
         
         // make a new picker
-        NSLog(@"make a new picker:\nindexPath: %d, pickerPath: %d", indexPath.row, pickerPath.row);
         minuteSetup = NO;
         [self.tableView insertRowsAtIndexPaths:@[pickerPath] withRowAnimation:UITableViewRowAnimationMiddle];
         
     } else {
         // simple case.
-        
-        
         // clear minuteSetup and pickerPath. use tempPickerPath for deleting the row
         // because when deleteRowsAtIndexPaths is called, it calls heightForRowAtIndexPath,
         // which uses pickerPath to determine cell height.
-        NSLog(@"delete picker simple case:\nindexPath: %d, pickerPath: %d", indexPath.row, pickerPath.row);
         minuteSetup = YES;
         NSIndexPath * tempPickerPath = [NSIndexPath indexPathForRow:pickerPath.row inSection:pickerPath.section];
         pickerPath = nil;
@@ -132,7 +185,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"cellForRowAtIndexPath called");
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -167,16 +219,18 @@
         switch (indexPath.row) {
             case 1:
                 NSLog(@"activityPicker");
+                cell.accessoryView = activityPicker;
                 break;
             case 2:
                 NSLog(@"intensityPicker");
+                cell.accessoryView = intensityPicker;
                 break;
             case 3:
                 NSLog(@"durationPicker");
+                cell.accessoryView = durationPicker;
                 break;
             case 4:
                 NSLog(@"endTimePicker");
-                endTimePicker.hidden = NO;
                 cell.accessoryView = endTimePicker;
                 break;
             default:
@@ -188,7 +242,6 @@
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"heightForRowAtIndexPath called");
 //    NSLog(@"indexPath.row: %d, pickerPath.row: %d", indexPath.row, pickerPath.row);
     if ([indexPath isEqual:pickerPath]) {
         return 150;
@@ -198,9 +251,7 @@
 }
 
 
-- (void) dismiss {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+
 
 /*
 // Override to support conditional editing of the table view.

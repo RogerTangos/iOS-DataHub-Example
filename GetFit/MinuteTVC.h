@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MinuteTVC : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface MinuteTVC : UITableViewController <UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @end
