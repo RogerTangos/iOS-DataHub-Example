@@ -11,7 +11,6 @@
 		9456285D1A41FAD700A2B9A7 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456285C1A41FAD700A2B9A7 /* GraphView.m */; };
 		945628601A4203A200A2B9A7 /* AboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456285F1A4203A200A2B9A7 /* AboutView.m */; };
 		945628681A4214A900A2B9A7 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945628671A4214A900A2B9A7 /* AboutVC.m */; };
-		9456286E1A4224BA00A2B9A7 /* TabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456286D1A4224BA00A2B9A7 /* TabVC.m */; };
 		945628711A4225DB00A2B9A7 /* GraphVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945628701A4225DB00A2B9A7 /* GraphVC.m */; };
 		945800181A50BF04000936FC /* PageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945800171A50BF04000936FC /* PageVC.m */; };
 		947378E51A42384E00DF933C /* GraphOne.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 947378E31A42384E00DF933C /* GraphOne.jpg */; };
@@ -80,8 +79,6 @@
 		9456285F1A4203A200A2B9A7 /* AboutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutView.m; sourceTree = "<group>"; };
 		945628661A4214A900A2B9A7 /* AboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutVC.h; sourceTree = "<group>"; };
 		945628671A4214A900A2B9A7 /* AboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutVC.m; sourceTree = "<group>"; };
-		9456286C1A4224BA00A2B9A7 /* TabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabVC.h; sourceTree = "<group>"; };
-		9456286D1A4224BA00A2B9A7 /* TabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabVC.m; sourceTree = "<group>"; };
 		9456286F1A4225DB00A2B9A7 /* GraphVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphVC.h; sourceTree = "<group>"; };
 		945628701A4225DB00A2B9A7 /* GraphVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphVC.m; sourceTree = "<group>"; };
 		945800161A50BF04000936FC /* PageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageVC.h; sourceTree = "<group>"; };
@@ -174,6 +171,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9458002C1A50C1CA000936FC /* About */ = {
+			isa = PBXGroup;
+			children = (
+				945628661A4214A900A2B9A7 /* AboutVC.h */,
+				945628671A4214A900A2B9A7 /* AboutVC.m */,
+				9456285E1A4203A200A2B9A7 /* AboutView.h */,
+				9456285F1A4203A200A2B9A7 /* AboutView.m */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
+		9458002D1A50C1D0000936FC /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				9456286F1A4225DB00A2B9A7 /* GraphVC.h */,
+				945628701A4225DB00A2B9A7 /* GraphVC.m */,
+				9456285B1A41FAD700A2B9A7 /* GraphView.h */,
+				9456285C1A41FAD700A2B9A7 /* GraphView.m */,
+			);
+			name = Graph;
+			sourceTree = "<group>";
+		};
 		947378EC1A432FDF00DF933C /* Minute */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,16 +225,6 @@
 		94DFCF2D1A3A0CFF00874346 /* Page */ = {
 			isa = PBXGroup;
 			children = (
-				945628661A4214A900A2B9A7 /* AboutVC.h */,
-				945628671A4214A900A2B9A7 /* AboutVC.m */,
-				9456285B1A41FAD700A2B9A7 /* GraphView.h */,
-				9456285C1A41FAD700A2B9A7 /* GraphView.m */,
-				9456285E1A4203A200A2B9A7 /* AboutView.h */,
-				9456285F1A4203A200A2B9A7 /* AboutView.m */,
-				9456286C1A4224BA00A2B9A7 /* TabVC.h */,
-				9456286D1A4224BA00A2B9A7 /* TabVC.m */,
-				9456286F1A4225DB00A2B9A7 /* GraphVC.h */,
-				945628701A4225DB00A2B9A7 /* GraphVC.m */,
 				945800161A50BF04000936FC /* PageVC.h */,
 				945800171A50BF04000936FC /* PageVC.m */,
 			);
@@ -246,6 +255,8 @@
 		94E3C44D1A2F6BE600AFE1A7 /* GetFit */ = {
 			isa = PBXGroup;
 			children = (
+				9458002D1A50C1D0000936FC /* Graph */,
+				9458002C1A50C1CA000936FC /* About */,
 				947378E31A42384E00DF933C /* GraphOne.jpg */,
 				947378E41A42384E00DF933C /* GraphTwo.jpg */,
 				94DFCF2D1A3A0CFF00874346 /* Page */,
@@ -525,7 +536,6 @@
 				94E3C4541A2F6BE600AFE1A7 /* AppDelegate.m in Sources */,
 				94E3C4B61A2FA93C00AFE1A7 /* TSocketClient.m in Sources */,
 				94E3C4AA1A2FA93C00AFE1A7 /* TMultiplexedProtocol.m in Sources */,
-				9456286E1A4224BA00A2B9A7 /* TabVC.m in Sources */,
 				94E3C4511A2F6BE600AFE1A7 /* main.m in Sources */,
 				94E3C4B91A2FA93C00AFE1A7 /* TTransportException.m in Sources */,
 				947378F51A435A9200DF933C /* MinuteTVC.m in Sources */,

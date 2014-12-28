@@ -23,17 +23,6 @@
     self.view = graphView;
 }
 
-- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil
-                           bundle:nibBundleOrNil];
-    
-    if (self) {
-        self.tabBarItem.title = @"Graph View";
-    }
-    return self;
-    
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

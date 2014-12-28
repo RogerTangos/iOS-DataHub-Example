@@ -32,7 +32,7 @@
         
         [self setViewControllers:@[self.graphVC]
                        direction:UIPageViewControllerNavigationDirectionForward
-                        animated:YES
+                        animated:NO
                       completion:NULL];
         
         
