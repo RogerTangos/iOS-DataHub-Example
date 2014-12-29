@@ -46,27 +46,22 @@
 
 #pragma mark - UIPageViewControllerDelegate
 - (UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-//    NSLog(@"After called. pageBeforeCall = %d", currentPage);
 
-    if (viewController == aboutVC) {
+    NSUInteger index = [viewControllerArray indexOfObject:viewController];
+    if (index >= [viewControllerArray count]-1) {
         return nil;
-    } else if (viewController == graphVC) {
-        return aboutVC;
     } else {
-        return exerciseVC;
+        return [viewControllerArray objectAtIndex:index+1];
     }
-    
 }
 
 - (UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-//    NSLog(@"Before called. pageBeforeCall = %d", currentPage);
-    
-    if (viewController == exerciseVC) {
+
+    NSUInteger index = [viewControllerArray indexOfObject:viewController];
+    if (index <= 0) {
         return nil;
-    } else if (viewController == graphVC) {
-        return exerciseVC;
     } else {
-        return aboutVC;
+        return [viewControllerArray objectAtIndex:index-1];
     }
 }
 
