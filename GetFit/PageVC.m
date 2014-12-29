@@ -9,28 +9,32 @@
 #import "PageVC.h"
 #import "GraphVC.h"
 #import "AboutVC.h"
+#import "ExerciseVC.h"
 
 @interface PageVC ()
-@property (strong, nonatomic) NSNumber *currentPage;
-@property (strong, nonatomic) GraphVC *graphVC;
-@property (strong, nonatomic) AboutVC *aboutVC;
 
+@property ExerciseVC *exerciseVC;
+@property GraphVC *graphVC;
+@property AboutVC *aboutVC;
+@property NSArray *viewControllerArray;
 
 @end
 
 @implementation PageVC
+@synthesize exerciseVC, graphVC, aboutVC, viewControllerArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.graphVC = [[GraphVC alloc]init];
-    self.aboutVC = [[AboutVC alloc] init];
+    graphVC = [[GraphVC alloc]init];
+    aboutVC = [[AboutVC alloc] init];
+    exerciseVC = [[ExerciseVC alloc] init];
     
-    self.currentPage = [[NSNumber alloc] initWithInt:0];
+    viewControllerArray = [[NSArray alloc] initWithObjects:exerciseVC, graphVC, aboutVC, nil];
     
-    if (self.graphVC != nil) {
+    if (graphVC != nil) {
         self.dataSource = self;
         
-        [self setViewControllers:@[self.graphVC]
+        [self setViewControllers:@[graphVC]
                        direction:UIPageViewControllerNavigationDirectionForward
                         animated:NO
                       completion:NULL];
@@ -39,48 +43,51 @@
     }
 }
 
+
 #pragma mark - UIPageViewControllerDelegate
-
-
 - (UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    
-    NSLog(@"AfterCurrentPage called. pageAfterCall = %d", [self.currentPage intValue]);
-    
-    if ([self.currentPage intValue] == 1) {
+//    NSLog(@"After called. pageBeforeCall = %d", currentPage);
+
+    if (viewController == aboutVC) {
         return nil;
+    } else if (viewController == graphVC) {
+        return aboutVC;
     } else {
-        int value = [self.currentPage intValue];
-        self.currentPage = [NSNumber numberWithInt:value + 1];
-        return self.aboutVC;
+        return exerciseVC;
     }
     
 }
 
 - (UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+//    NSLog(@"Before called. pageBeforeCall = %d", currentPage);
     
-    NSLog(@"BeforeCurrentPage called. pageBeforeCall = %d", [self.currentPage intValue]);
-    
-    if ([self.currentPage intValue] == 0) {
+    if (viewController == exerciseVC) {
         return nil;
+    } else if (viewController == graphVC) {
+        return exerciseVC;
     } else {
-        int value = [self.currentPage intValue];
-        self.currentPage = [NSNumber numberWithInt:value - 1];
-        
-        return self.graphVC;
+        return aboutVC;
     }
 }
 
+- (void) pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
+    NSLog(@"PageViewController didFinishAnimating");
+}
+
+
+#pragma mark - UIPageViewController Page Count
+
 - (NSInteger) presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-    return 2;
+    return [viewControllerArray count];
 }
 
 - (NSInteger) presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
-    return [self.currentPage integerValue];
+    // start at page 1
+    return 1;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*

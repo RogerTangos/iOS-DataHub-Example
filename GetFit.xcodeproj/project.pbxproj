@@ -13,6 +13,8 @@
 		945628681A4214A900A2B9A7 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945628671A4214A900A2B9A7 /* AboutVC.m */; };
 		945628711A4225DB00A2B9A7 /* GraphVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945628701A4225DB00A2B9A7 /* GraphVC.m */; };
 		945800181A50BF04000936FC /* PageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945800171A50BF04000936FC /* PageVC.m */; };
+		945800321A50C8E9000936FC /* ExerciseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945800301A50C8E9000936FC /* ExerciseVC.m */; };
+		945800331A50C8E9000936FC /* ExerciseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945800311A50C8E9000936FC /* ExerciseVC.xib */; };
 		947378E51A42384E00DF933C /* GraphOne.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 947378E31A42384E00DF933C /* GraphOne.jpg */; };
 		947378E61A42384E00DF933C /* GraphTwo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 947378E41A42384E00DF933C /* GraphTwo.jpg */; };
 		947378F51A435A9200DF933C /* MinuteTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947378F41A435A9200DF933C /* MinuteTVC.m */; };
@@ -83,6 +85,9 @@
 		945628701A4225DB00A2B9A7 /* GraphVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphVC.m; sourceTree = "<group>"; };
 		945800161A50BF04000936FC /* PageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageVC.h; sourceTree = "<group>"; };
 		945800171A50BF04000936FC /* PageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageVC.m; sourceTree = "<group>"; };
+		9458002F1A50C8E9000936FC /* ExerciseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseVC.h; sourceTree = "<group>"; };
+		945800301A50C8E9000936FC /* ExerciseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseVC.m; sourceTree = "<group>"; };
+		945800311A50C8E9000936FC /* ExerciseVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExerciseVC.xib; sourceTree = "<group>"; };
 		947378E31A42384E00DF933C /* GraphOne.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GraphOne.jpg; sourceTree = "<group>"; };
 		947378E41A42384E00DF933C /* GraphTwo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GraphTwo.jpg; sourceTree = "<group>"; };
 		947378F31A435A9200DF933C /* MinuteTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinuteTVC.h; sourceTree = "<group>"; };
@@ -193,6 +198,16 @@
 			name = Graph;
 			sourceTree = "<group>";
 		};
+		9458002E1A50C8BF000936FC /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				9458002F1A50C8E9000936FC /* ExerciseVC.h */,
+				945800301A50C8E9000936FC /* ExerciseVC.m */,
+				945800311A50C8E9000936FC /* ExerciseVC.xib */,
+			);
+			name = Exercise;
+			sourceTree = "<group>";
+		};
 		947378EC1A432FDF00DF933C /* Minute */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +270,7 @@
 		94E3C44D1A2F6BE600AFE1A7 /* GetFit */ = {
 			isa = PBXGroup;
 			children = (
+				9458002E1A50C8BF000936FC /* Exercise */,
 				9458002D1A50C1D0000936FC /* Graph */,
 				9458002C1A50C1CA000936FC /* About */,
 				947378E31A42384E00DF933C /* GraphOne.jpg */,
@@ -499,6 +515,7 @@
 			files = (
 				94E3C45A1A2F6BE600AFE1A7 /* Main.storyboard in Resources */,
 				947378E61A42384E00DF933C /* GraphTwo.jpg in Resources */,
+				945800331A50C8E9000936FC /* ExerciseVC.xib in Resources */,
 				94E3C45F1A2F6BE600AFE1A7 /* LaunchScreen.xib in Resources */,
 				94E3C45C1A2F6BE600AFE1A7 /* Images.xcassets in Resources */,
 				947378E51A42384E00DF933C /* GraphOne.jpg in Resources */,
@@ -534,6 +551,7 @@
 				945628681A4214A900A2B9A7 /* AboutVC.m in Sources */,
 				94E3C4B71A2FA93C00AFE1A7 /* TSSLSocketClient.m in Sources */,
 				94E3C4541A2F6BE600AFE1A7 /* AppDelegate.m in Sources */,
+				945800321A50C8E9000936FC /* ExerciseVC.m in Sources */,
 				94E3C4B61A2FA93C00AFE1A7 /* TSocketClient.m in Sources */,
 				94E3C4AA1A2FA93C00AFE1A7 /* TMultiplexedProtocol.m in Sources */,
 				94E3C4511A2F6BE600AFE1A7 /* main.m in Sources */,

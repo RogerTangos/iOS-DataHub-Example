@@ -1,5 +1,5 @@
 //
-//  PageVC.h
+//  ExerciseVC.h
 //  GetFit
 //
 //  Created by Albert Carter on 12/28/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PageVC : UIPageViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
+@interface ExerciseVC : UIViewController
 
 @end
