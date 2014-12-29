@@ -19,6 +19,8 @@
 		947378E61A42384E00DF933C /* GraphTwo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 947378E41A42384E00DF933C /* GraphTwo.jpg */; };
 		947378F51A435A9200DF933C /* MinuteTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947378F41A435A9200DF933C /* MinuteTVC.m */; };
 		9499C9641A321A27004CEB67 /* OAuthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499C9631A321A27004CEB67 /* OAuthVC.m */; };
+		94C378DA1A51F08900370461 /* MinuteEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C378D91A51F08900370461 /* MinuteEntry.m */; };
+		94C378DD1A51F0D500370461 /* MinuteStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C378DC1A51F0D500370461 /* MinuteStore.m */; };
 		94DFCF1C1A38BD6700874346 /* libOpenSense.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94DFCF1B1A38BD6700874346 /* libOpenSense.a */; };
 		94E3C4511A2F6BE600AFE1A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4501A2F6BE600AFE1A7 /* main.m */; };
 		94E3C4541A2F6BE600AFE1A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4531A2F6BE600AFE1A7 /* AppDelegate.m */; };
@@ -94,6 +96,10 @@
 		947378F41A435A9200DF933C /* MinuteTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinuteTVC.m; sourceTree = "<group>"; };
 		9499C9621A321A27004CEB67 /* OAuthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthVC.h; path = OAuth/OAuthVC.h; sourceTree = "<group>"; };
 		9499C9631A321A27004CEB67 /* OAuthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuthVC.m; path = OAuth/OAuthVC.m; sourceTree = "<group>"; };
+		94C378D81A51F08900370461 /* MinuteEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinuteEntry.h; sourceTree = "<group>"; };
+		94C378D91A51F08900370461 /* MinuteEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinuteEntry.m; sourceTree = "<group>"; };
+		94C378DB1A51F0D500370461 /* MinuteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinuteStore.h; sourceTree = "<group>"; };
+		94C378DC1A51F0D500370461 /* MinuteStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinuteStore.m; sourceTree = "<group>"; };
 		94DFCF101A38B9E300874346 /* OpenSense.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OpenSense.xcodeproj; path = OpenSense/OpenSense.xcodeproj; sourceTree = SOURCE_ROOT; };
 		94DFCF1B1A38BD6700874346 /* libOpenSense.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOpenSense.a; path = "OpenSense/build/Debug-iphoneos/libOpenSense.a"; sourceTree = "<group>"; };
 		94E3C44B1A2F6BE600AFE1A7 /* GetFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +221,10 @@
 				947378F41A435A9200DF933C /* MinuteTVC.m */,
 				944A44611A4F7E37009FA078 /* ActivityPickerView.h */,
 				944A44621A4F7E37009FA078 /* ActivityPickerView.m */,
+				94C378D81A51F08900370461 /* MinuteEntry.h */,
+				94C378D91A51F08900370461 /* MinuteEntry.m */,
+				94C378DB1A51F0D500370461 /* MinuteStore.h */,
+				94C378DC1A51F0D500370461 /* MinuteStore.m */,
 			);
 			name = Minute;
 			sourceTree = "<group>";
@@ -270,16 +280,16 @@
 		94E3C44D1A2F6BE600AFE1A7 /* GetFit */ = {
 			isa = PBXGroup;
 			children = (
+				94DFCF2D1A3A0CFF00874346 /* Page */,
 				9458002E1A50C8BF000936FC /* Exercise */,
 				9458002D1A50C1D0000936FC /* Graph */,
 				9458002C1A50C1CA000936FC /* About */,
+				9499C9591A320D18004CEB67 /* OAuth */,
+				947378EC1A432FDF00DF933C /* Minute */,
 				947378E31A42384E00DF933C /* GraphOne.jpg */,
 				947378E41A42384E00DF933C /* GraphTwo.jpg */,
-				94DFCF2D1A3A0CFF00874346 /* Page */,
-				9499C9591A320D18004CEB67 /* OAuth */,
 				94E3C4521A2F6BE600AFE1A7 /* AppDelegate.h */,
 				94E3C4531A2F6BE600AFE1A7 /* AppDelegate.m */,
-				947378EC1A432FDF00DF933C /* Minute */,
 				94E3C4551A2F6BE600AFE1A7 /* ViewController.h */,
 				94E3C4561A2F6BE600AFE1A7 /* ViewController.m */,
 				94E3C4581A2F6BE600AFE1A7 /* Main.storyboard */,
@@ -548,6 +558,7 @@
 				94E3C4B21A2FA93C00AFE1A7 /* THTTPClient.m in Sources */,
 				94E3C4781A2FA86F00AFE1A7 /* datahub.m in Sources */,
 				94E3C4AC1A2FA93C00AFE1A7 /* TProtocolException.m in Sources */,
+				94C378DA1A51F08900370461 /* MinuteEntry.m in Sources */,
 				945628681A4214A900A2B9A7 /* AboutVC.m in Sources */,
 				94E3C4B71A2FA93C00AFE1A7 /* TSSLSocketClient.m in Sources */,
 				94E3C4541A2F6BE600AFE1A7 /* AppDelegate.m in Sources */,
@@ -560,6 +571,7 @@
 				9499C9641A321A27004CEB67 /* OAuthVC.m in Sources */,
 				944A44631A4F7E37009FA078 /* ActivityPickerView.m in Sources */,
 				94E3C4AE1A2FA93C00AFE1A7 /* TSocketServer.m in Sources */,
+				94C378DD1A51F0D500370461 /* MinuteStore.m in Sources */,
 				94E3C4B31A2FA93C00AFE1A7 /* TMemoryBuffer.m in Sources */,
 				94E3C4B51A2FA93C00AFE1A7 /* TNSStreamTransport.m in Sources */,
 				945628711A4225DB00A2B9A7 /* GraphVC.m in Sources */,

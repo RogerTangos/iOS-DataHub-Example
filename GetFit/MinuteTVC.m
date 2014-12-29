@@ -102,7 +102,41 @@
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
-    NSLog(@"Selected activity/thing: %@. Index of selected row: %i", [activities objectAtIndex:row], row);
+    // find the picker setting the thing
+    // find the index of the related cell
+    // find the text of the picker
+    // find change the cell text
+    
+    // find the cell that created the picker
+    NSIndexPath *cellPath = [NSIndexPath indexPathForRow:pickerPath.row-1 inSection:pickerPath.section];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:cellPath];
+    
+    // find what the user selected, and assign to the relevant cell
+    NSString *selection = [NSString alloc];
+    switch (pickerPath.row) {
+        case 1:
+            selection = [activities objectAtIndex:row];
+            break;
+        case 2:
+            selection = [intensities objectAtIndex:row];
+            break;
+        case 3:
+            selection = [durations objectAtIndex:row];
+            break;
+        case 4:
+            NSLog(@"Time picker shouldn't be called in pickerView");
+            break;
+        default:
+            break;
+    }
+    
+    // assign the selection to the cell
+    cell.detailTextLabel.text = selection;
+    
+    
+    NSLog(@"%@", selection);
+    
+//    NSLog(@"Selected activity/thing: %@. Index of selected row: %i", [activities objectAtIndex:row], row);
 }
 
 - (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
@@ -242,9 +276,19 @@
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSLog(@"indexPath.row: %d, pickerPath.row: %d", indexPath.row, pickerPath.row);
     if ([indexPath isEqual:pickerPath]) {
-        return 150;
+        switch (indexPath.row) {
+            case 1:
+                return 110;
+            case 2:
+                return 75;
+            case 3:
+                return 110;
+            case 4:
+                return 162;
+            default:
+                return 160;
+        }
     } else {
         return [super tableView:tableView heightForRowAtIndexPath:indexPath];
     }
