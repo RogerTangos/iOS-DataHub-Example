@@ -124,26 +124,26 @@
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
-    // find the picker setting the thing
-    // find the index of the related cell
-    // find the text of the picker
-    // find change the cell text
     
-    // find the cell that created the picker
+    // find the cell and minuteEntry relevant to the picker
     NSIndexPath *cellPath = [NSIndexPath indexPathForRow:pickerPath.row-1 inSection:pickerPath.section];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:cellPath];
+    MinuteEntry * minuteEntry = [minuteArr objectAtIndex:pickerPath.section];
     
     // find what the user selected, and assign to the relevant cell
     NSString *selection = [NSString alloc];
     switch (pickerPath.row) {
         case 1:
             selection = [activities objectAtIndex:row];
+            minuteEntry.activity = selection;
             break;
         case 2:
             selection = [intensities objectAtIndex:row];
+            minuteEntry.intensity = selection;
             break;
         case 3:
             selection = [durations objectAtIndex:row];
+            minuteEntry.duration = [self minutesFromString:selection];
             break;
         case 4:
             NSLog(@"Time picker shouldn't be called in pickerView");
@@ -155,10 +155,8 @@
     // assign the selection to the cell
     cell.detailTextLabel.text = selection;
     
+    // make sure to also update the minuteEntry
     
-    NSLog(@"%@", selection);
-    
-//    NSLog(@"Selected activity/thing: %@. Index of selected row: %i", [activities objectAtIndex:row], row);
 }
 
 - (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
@@ -182,15 +180,48 @@
     dateFormatter.dateStyle = NSDateFormatterShortStyle;
     NSString *dateStr = [dateFormatter stringFromDate:endTimePicker.date];
     
+    // get the relevant cell and minuteEntry
     NSIndexPath *cellPath = [NSIndexPath indexPathForRow:pickerPath.row-1 inSection:pickerPath.section];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:cellPath];
+    MinuteEntry * minuteEntry = [minuteArr objectAtIndex:pickerPath.section];
+    
+    // update the cell and the relevant minuteEntry
     cell.detailTextLabel.text = dateStr;
+    minuteEntry.endTime = endTimePicker.date;
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
     return 1;
 }
 
+#pragma mark - helper methods
+- (NSInteger) minutesFromString:(NSString*)str {
+    // method to computer the number of minutes from duration picker
+    
+    NSInteger minuteValue;
+    
+    NSString *pattern = @"(\\d+)";
+    NSError *error = NULL;
+    
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
+    
+    NSArray *matches = [regex matchesInString:str
+                                      options:0
+                                        range:NSMakeRange(0, [str length])];
+    
+    // only minutes extracted
+    if ([matches count] == 1) {
+        minuteValue = [[str substringWithRange:[matches[0] range]] integerValue];
+        return minuteValue;
+    }
+    
+    // hours and minutes extracted
+    NSString* hr = [str substringWithRange:[matches[0] range]];
+    NSString* min = [str substringWithRange:[matches[1] range]];
+    
+    minuteValue = [min intValue] + [hr intValue] * 60;
+    return minuteValue;
+}
 
 #pragma mark - Table view data source
 
