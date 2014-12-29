@@ -7,15 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MinuteEntry.h"
+@class MinuteEntry;
 
 @interface MinuteStore : NSObject
 + (instancetype) sharedStore;
 
-- (MinuteEntry *) createMinuteEntrywithActivity:(NSString *) activity
+- (MinuteEntry *) createMinuteEntryWithActivity:(NSString *) activity
                           intensity:(NSString *)intensity
                            duration:(NSInteger)duration
                          andEndTime:(NSDate *)endTime;
+
+- (void) addMinuteEntry: (MinuteEntry *) minuteEntry;
 - (void) removeMinuteEntry:(MinuteEntry *)minuteEntry;
 
 // need to be implemented

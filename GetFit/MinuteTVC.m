@@ -11,8 +11,11 @@
 #import "MinuteTVC.h"
 #import "ActivityPickerView.h"
 
+#import "MinuteStore.h"
+#import "MinuteEntry.h"
+
 @interface MinuteTVC () {
-    NSInteger numberOfEntries;
+    NSMutableArray *minuteArr;
     
     NSIndexPath *pickerPath;
     BOOL minuteSetup;
@@ -35,7 +38,7 @@
     
     // create save and cancel buttons
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Save"
-                                                                    style:UIBarButtonItemStyleDone target:self action:@selector(dismiss)];
+                                                                    style:UIBarButtonItemStyleDone target:self action:@selector(save)];
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
                                                                    style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
     self.navigationItem.rightBarButtonItem = rightButton;
@@ -58,6 +61,9 @@
     [intensityPicker setDelegate:self];
     [durationPicker setDelegate:self];
     
+    // create the minute Array
+    minuteArr = [[NSMutableArray alloc] init];
+    
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -70,18 +76,34 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+    
+    // add a single entry to the tempMinuteArr
+    MinuteEntry *minuteEntry = [[MinuteEntry alloc] initEntryWithActivity:@"" intensity:@"" duration:0 andEndTime:[NSDate date]];
+    [minuteArr addObject:minuteEntry];
+    NSLog(@"%d", [minuteArr count]);
+    
+    
     // default to just one entry and to just having setup the view whenever the view appears/reappears,
-    numberOfEntries = 1;
+
     minuteSetup = YES;
     
+    // resetup the dateTimePicker, so it uses the most current date
     endTimePicker = [[UIDatePicker alloc] init];
     endTimePicker.datePickerMode = UIDatePickerModeDateAndTime;
     endTimePicker.maximumDate= [NSDate date];
-    [endTimePicker addTarget:self action:nil forControlEvents:UIControlEventValueChanged];
+    [endTimePicker addTarget:self action:@selector(datePickerChanged:) forControlEvents:UIControlEventValueChanged];
     }
 
 - (void) dismiss {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void) save {
+//    MinuteStore *minuteStore = [MinuteStore sharedStore];
+    // for object in tempMinute Store
+    // make sure object is valid
+    // then add the minuteEntry into the minuteStore
+    
 }
 
 #pragma mark - Picker view DataSource/Delegate Methods
@@ -153,6 +175,18 @@
     }
 }
 
+- (void) datePickerChanged:(id)sender {
+    // format the date and assign it to the cell
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeStyle = NSDateFormatterShortStyle;
+    dateFormatter.dateStyle = NSDateFormatterShortStyle;
+    NSString *dateStr = [dateFormatter stringFromDate:endTimePicker.date];
+    
+    NSIndexPath *cellPath = [NSIndexPath indexPathForRow:pickerPath.row-1 inSection:pickerPath.section];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:cellPath];
+    cell.detailTextLabel.text = dateStr;
+}
+
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
     return 1;
 }
@@ -162,7 +196,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // create a section for each entry
-    return numberOfEntries;
+    return [minuteArr count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -175,8 +209,6 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    
     
     // create or delete the picker row.
     // if creating a row, assign the picker path
@@ -226,25 +258,31 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
-    // pickers are hidden/shown in setCellVisibilityAtIndexPath and heightForRowAtIndexPath
+    // pickers are hidden/shown in setCellVisibilityAtIndexPath and
+
     
     if (minuteSetup) {
+        // work out the currentDate, since you it's not possible in a switch statement
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.timeStyle = NSDateFormatterShortStyle;
+        dateFormatter.dateStyle = NSDateFormatterShortStyle;
+        
         switch (indexPath.row) {
             case 0:
                 cell.textLabel.text = @"Activity";
-                cell.detailTextLabel.text = @"select an activity";
+                cell.detailTextLabel.text = @"- select -";
                 break;
             case 1:
                 cell.textLabel.text = @"Intensity";
-                cell.detailTextLabel.text = @"medium";
+                cell.detailTextLabel.text = @"- select -";
                 break;
             case 2:
                 cell.textLabel.text = @"Duration";
-                cell.detailTextLabel.text = @"15 min";
+                cell.detailTextLabel.text = @"- select -";
                 break;
             case 3:
                 cell.textLabel.text = @"End Time";
-                cell.detailTextLabel.text = @"Dec 18, 2014\t8:00PM";
+                cell.detailTextLabel.text = [dateFormatter stringFromDate:[NSDate date]];
                 break;
             default:
                 break;

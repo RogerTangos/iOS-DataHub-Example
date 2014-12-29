@@ -44,7 +44,7 @@
 
 # pragma mark - manipulating privateMinutes array;
 
-- (MinuteEntry *) createMinuteEntrywithActivity:(NSString *)activity
+- (MinuteEntry *) createMinuteEntryWithActivity:(NSString *)activity
                              intensity:(NSString *)intensity
                               duration:(NSInteger)duration
                             andEndTime:(NSDate *)endTime {
@@ -53,6 +53,10 @@
     
     [_privateMinutes addObject:minuteEntry];
     return minuteEntry;
+}
+
+- (void) addMinuteEntry:(MinuteEntry *)minuteEntry {
+    [_privateMinutes addObject:minuteEntry];
 }
 
 - (void) removeMinuteEntry:(MinuteEntry *)minuteEntry {
