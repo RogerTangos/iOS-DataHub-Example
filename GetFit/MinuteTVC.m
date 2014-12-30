@@ -138,12 +138,16 @@
 - (void) newMinuteEntryForTable {
     MinuteEntry *minuteEntry = [[MinuteEntry alloc] initEntryWithActivity:@"" intensity:@"" duration:0 andEndTime:[NSDate date]];
     [minuteArr addObject:minuteEntry];
+    NSUInteger numberOfSections = [minuteArr count] -1; //computing this within indexSetWithIndex crashes
+    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:numberOfSections] withRowAnimation:UITableViewRowAnimationBottom];
+    
 }
 
 - (void) removeMinuteEntryFromTable {
     if ([minuteArr count] > 1) {
         [minuteArr removeLastObject];
     }
+    [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:[minuteArr count]-1] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 
@@ -463,6 +467,7 @@
         // refresh the table
 //        self.refreshControl = [[UIRefreshControl alloc] init];
         
+       
         return view;
     }
     return nil;
