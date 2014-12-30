@@ -28,6 +28,11 @@
     NSArray * activities;
     NSArray * intensities;
     NSArray * durations;
+    
+    CGFloat subHeaderHeight;
+    CGFloat dividerFooterHeight;
+    CGFloat bottomFooterHeight;
+    
 }
 @end
 
@@ -43,6 +48,11 @@
                                                                    style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
     self.navigationItem.rightBarButtonItem = rightButton;
     self.navigationItem.leftBarButtonItem = leftButton;
+    
+    // define the header/footer heights for the table
+    subHeaderHeight = 40;
+    dividerFooterHeight = 10;
+    bottomFooterHeight = 30;
     
     
     // populate the picker option arrays
@@ -63,8 +73,7 @@
     
     // create the minute Array
     minuteArr = [[NSMutableArray alloc] init];
-    
-    
+
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -80,7 +89,6 @@
     // add a single entry to the tempMinuteArr
     MinuteEntry *minuteEntry = [[MinuteEntry alloc] initEntryWithActivity:@"" intensity:@"" duration:0 andEndTime:[NSDate date]];
     [minuteArr addObject:minuteEntry];
-    NSLog(@"%d", [minuteArr count]);
     
     
     // default to just one entry and to just having setup the view whenever the view appears/reappears,
@@ -94,22 +102,54 @@
     [endTimePicker addTarget:self action:@selector(datePickerChanged:) forControlEvents:UIControlEventValueChanged];
     }
 
+# pragma mark - button actions
+
 - (void) dismiss {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) save {
-//    MinuteStore *minuteStore = [MinuteStore sharedStore];
-    // for object in tempMinute Store
-    // make sure object is valid
-    // then add the minuteEntry into the minuteStore
+    MinuteStore *minuteStore = [MinuteStore sharedStore];
     
+    // first, check to make sure everything is good
+    for (MinuteEntry *me in minuteArr) {
+        if (![me verifyEntry]) {
+            UIAlertView *alert = [[UIAlertView alloc]
+                                  initWithTitle:@"Check your minutes"
+                                        message:@"Please make sure that you have made all selections"
+                                        delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
+            [alert show];
+            return;
+        }
+    }
+    
+    
+    for (MinuteEntry *me in minuteArr) {
+        [minuteStore addMinuteEntry:me];
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Minutes Saved" message:@"" delegate:nil
+                          cancelButtonTitle:@"ok"
+                          otherButtonTitles:nil];
+    [alert show];
 }
+
+- (void) newMinuteEntryForTable {
+    MinuteEntry *minuteEntry = [[MinuteEntry alloc] initEntryWithActivity:@"" intensity:@"" duration:0 andEndTime:[NSDate date]];
+    [minuteArr addObject:minuteEntry];
+}
+
+- (void) removeMinuteEntryFromTable {
+    if ([minuteArr count] > 1) {
+        [minuteArr removeLastObject];
+    }
+}
+
 
 #pragma mark - Picker view DataSource/Delegate Methods
 
 - (NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    NSLog(@"titleForRow is being called");
     switch (pickerPath.row) {
         case 1:
             return [activities objectAtIndex:row];
@@ -119,6 +159,20 @@
             return [durations objectAtIndex:row];
         default:
             return nil;
+    }
+}
+
+- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
+    NSLog(@"The pickerPath.row is: %d", pickerPath.row);
+    switch (pickerPath.row) {
+        case 1:
+            return [activities count];
+        case 2:
+            return [intensities count];
+        case 3:
+            return [durations count];
+        default:
+            return 4;
     }
 }
 
@@ -145,32 +199,13 @@
             selection = [durations objectAtIndex:row];
             minuteEntry.duration = [self minutesFromString:selection];
             break;
-        case 4:
-            NSLog(@"Time picker shouldn't be called in pickerView");
-            break;
         default:
-            break;
+            [NSException raise:@"out of bounds"
+                        format:@"Your picker index.row is >= 4. Use [self datePickerChanged]"];
     }
     
     // assign the selection to the cell
     cell.detailTextLabel.text = selection;
-    
-    // make sure to also update the minuteEntry
-    
-}
-
-- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
-    NSLog(@"The pickerPath.row is: %d", pickerPath.row);
-    switch (pickerPath.row) {
-        case 1:
-            return [activities count];
-        case 2:
-            return [intensities count];
-        case 3:
-            return [durations count];
-        default:
-            return 4;
-    }
 }
 
 - (void) datePickerChanged:(id)sender {
@@ -289,9 +324,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
-    // pickers are hidden/shown in setCellVisibilityAtIndexPath and
-
-    
+    // see [self setCellVisibilityAtIndexPath] for hiding/showing pickers
     if (minuteSetup) {
         // work out the currentDate, since you it's not possible in a switch statement
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -361,6 +394,79 @@
     } else {
         return [super tableView:tableView heightForRowAtIndexPath:indexPath];
     }
+}
+
+# pragma mark - table sections and buttons
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    //    if (section == 0) {
+    //        return 0;
+    //    }
+    
+    return subHeaderHeight;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    // for the first section alone, this isn't necessary
+//    if (section == 0) {
+//        return nil;
+//    }
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, subHeaderHeight)];
+    [view setBackgroundColor:[UIColor whiteColor]];
+    
+    UILabel *headerLabel = [[UILabel alloc] init];
+    headerLabel.frame = CGRectMake(15, 15, tableView.frame.size.width, subHeaderHeight/2);
+    headerLabel.text = @"Please add your minutes below:";
+    
+    [view addSubview:headerLabel];
+    
+    return view;
+    
+}
+
+# pragma mark
+
+
+- (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    
+    if (section == [minuteArr count]-1) {
+        return bottomFooterHeight;
+    }
+    return dividerFooterHeight;
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    
+    if (section == [minuteArr count]-1) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, bottomFooterHeight)];
+        [view setBackgroundColor:[UIColor whiteColor]];
+        
+        // add entry button
+        UIButton *additionalButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        additionalButton.frame = CGRectMake(tableView.frame.size.width/2+20, 0, 100, bottomFooterHeight);
+        [additionalButton setTitle:@"add entries" forState:UIControlStateNormal];
+        [additionalButton setTitleColor:[UIColor colorWithRed:0 green:0.478431 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+        [additionalButton addTarget:self action:@selector(newMinuteEntryForTable) forControlEvents:UIControlEventTouchUpInside];
+        [view addSubview:additionalButton];
+        
+        
+        UIButton *fewerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        fewerButton.frame = CGRectMake(tableView.frame.size.width/2-120, 0, 120, bottomFooterHeight);
+        [fewerButton setTitle:@"remove entries" forState:UIControlStateNormal];
+        [fewerButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [fewerButton addTarget:self action:@selector(removeMinuteEntryFromTable) forControlEvents:UIControlEventTouchUpInside];
+        [view addSubview:fewerButton];
+    
+        // refresh the table
+//        self.refreshControl = [[UIRefreshControl alloc] init];
+        
+        return view;
+    }
+    return nil;
+
 }
 
 

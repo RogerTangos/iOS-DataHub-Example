@@ -15,6 +15,7 @@
                              intensity:(NSString *)intensity
                               duration:(NSInteger)duration
                             andEndTime:(NSDate *)endTime;
+- (BOOL) verifyEntry;
 
 @property (weak, nonatomic) NSString *activity;
 @property (weak, nonatomic) NSString *intensity;

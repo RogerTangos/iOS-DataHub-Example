@@ -11,7 +11,7 @@
 
 @implementation MinuteEntry
 
--(instancetype) initEntryWithActivity:(NSString *)activity
+- (instancetype) initEntryWithActivity:(NSString *)activity
                             intensity:(NSString *)intensity
                              duration:(NSInteger)duration
                            andEndTime:(NSDate *)endTime {
@@ -27,6 +27,18 @@
     return self;
 }
 
+
+- (BOOL) verifyEntry {
+    if ([_activity length] + [_intensity length] < 2) {
+        return NO;
+    }
+    
+    if (_duration == 0) {
+        return NO;
+    }
+
+    return YES;
+}
 
 
 @end
