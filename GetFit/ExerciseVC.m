@@ -7,8 +7,11 @@
 //
 
 #import "ExerciseVC.h"
+#import "Resources.h"
 
 @interface ExerciseVC ()
+
+@property NSString *currentlyEditing;
 @property UITextField *activityField;
 @property UITextField *intensityField;
 
@@ -18,14 +21,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _currentlyEditing = @"";
+    
+    UITapGestureRecognizer* tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPickers)];
+    [tapBackground setNumberOfTapsRequired:1];
+    [self.view addGestureRecognizer:tapBackground];
     
     UIPickerView *activityPicker = [[UIPickerView alloc] init];
     activityPicker.dataSource = self;
     activityPicker.delegate = self;
+    activityPicker.tag = 0;
+    [activityPicker setBackgroundColor:[UIColor whiteColor]];
     
     UIPickerView *intensityPicker = [[UIPickerView alloc] init];
     intensityPicker.dataSource = self;
     intensityPicker.delegate = self;
+    intensityPicker.tag = 1;
+    [intensityPicker setBackgroundColor:[UIColor whiteColor]];
     
     // some useful varibales
     CGRect windowFrame = self.view.frame;
@@ -43,8 +55,8 @@
     //    [_activityField setBackgroundColor:[UIColor grayColor]];
     _activityField.layer.borderWidth = 1.0;
     [_activityField.layer setBorderColor:[systemBlue CGColor]];
+    [_activityField addTarget:self action:@selector(editAction) forControlEvents:UIControlEventEditingDidBegin];
     [self.view addSubview:_activityField];
-    
     
     _intensityField = [[UITextField alloc] initWithFrame:CGRectMake(windowFrame.size.width-25-buttonWidth, 100, buttonWidth, buttonWidth)];
     [ _intensityField setText:@"-select intensity-"];
@@ -55,6 +67,7 @@
     _intensityField.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     //    [ _intensityField setBackgroundColor:[UIColor grayColor]];
     _intensityField.layer.borderWidth = 1.0;
+    [_intensityField addTarget:self action:@selector(editIntensity) forControlEvents:UIControlEventEditingDidBegin];
     [ _intensityField.layer setBorderColor:[systemBlue CGColor]];
     [self.view addSubview: _intensityField];
     
@@ -66,11 +79,25 @@
     startButton.layer.borderWidth = 1.0;
     startButton.layer.cornerRadius = startButton.bounds.size.width/2;
     [startButton.layer setBorderColor:[[UIColor redColor] CGColor]];
+    [startButton addTarget:self action:@selector(startRecording) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:startButton];
 }
 
-- (void) showActivityPicker {
-    
+- (void) startRecording {
+    NSLog(@"start button pressed");
+    [self dismissPickers];
+}
+
+- (void) editAction {
+    _currentlyEditing = @"action";
+}
+
+- (void) editIntensity {
+    _currentlyEditing = @"intensity";
+}
+
+- (void) dismissPickers {
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,10 +105,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-# pragma marks - picker
+# pragma mark - picker
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 5;
+    Resources *resources = [Resources sharedResources];
+    
+    if ([_currentlyEditing isEqualToString:@"action"]) {
+        return [resources.activities count];
+    }
+    
+    return [resources.intensities count];
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -89,12 +122,25 @@
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return @"foo";
+    Resources *resources = [Resources sharedResources];
+    if ([_currentlyEditing isEqualToString:@"action"]) {
+        return [resources.activities objectAtIndex:row];
+    }
+    
+    return [resources.intensities objectAtIndex:row];
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-//    NSString *text = self.theData[row];
-    [_activityField setText:@"Foo"];
+    Resources *resources = [Resources sharedResources];
+    
+    if ([_currentlyEditing isEqualToString:@"action"]) {
+        [_activityField setText:[resources.activities objectAtIndex:row]];
+        [_activityField setTextAlignment:NSTextAlignmentCenter];
+    } else {
+        [_intensityField setText:[resources.intensities objectAtIndex:row]];
+        [_intensityField setTextAlignment:NSTextAlignmentCenter];
+    }
+    
 }
 
 /*

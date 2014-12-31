@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		94270A3E1A545E5A00453F6D /* ExerciseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94270A3D1A545E5A00453F6D /* ExerciseVC.m */; };
-		94270A441A546E7100453F6D /* ActivityPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 94270A431A546E7100453F6D /* ActivityPicker.m */; };
+		94270A471A546F2D00453F6D /* Resources.m in Sources */ = {isa = PBXBuildFile; fileRef = 94270A461A546F2D00453F6D /* Resources.m */; };
 		944A44631A4F7E37009FA078 /* ActivityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944A44621A4F7E37009FA078 /* ActivityPickerView.m */; };
 		9456285D1A41FAD700A2B9A7 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456285C1A41FAD700A2B9A7 /* GraphView.m */; };
 		945628601A4203A200A2B9A7 /* AboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456285F1A4203A200A2B9A7 /* AboutView.m */; };
@@ -77,8 +77,8 @@
 /* Begin PBXFileReference section */
 		94270A3C1A545E5A00453F6D /* ExerciseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseVC.h; sourceTree = "<group>"; };
 		94270A3D1A545E5A00453F6D /* ExerciseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseVC.m; sourceTree = "<group>"; };
-		94270A421A546E7100453F6D /* ActivityPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityPicker.h; sourceTree = "<group>"; };
-		94270A431A546E7100453F6D /* ActivityPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityPicker.m; sourceTree = "<group>"; };
+		94270A451A546F2D00453F6D /* Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../Resources.h; sourceTree = "<group>"; };
+		94270A461A546F2D00453F6D /* Resources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Resources.m; path = ../Resources.m; sourceTree = "<group>"; };
 		944A44611A4F7E37009FA078 /* ActivityPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityPickerView.h; sourceTree = "<group>"; };
 		944A44621A4F7E37009FA078 /* ActivityPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityPickerView.m; sourceTree = "<group>"; };
 		9456285B1A41FAD700A2B9A7 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
@@ -186,8 +186,6 @@
 		94270A411A546E5000453F6D /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
-				94270A421A546E7100453F6D /* ActivityPicker.h */,
-				94270A431A546E7100453F6D /* ActivityPicker.m */,
 			);
 			name = Pickers;
 			sourceTree = "<group>";
@@ -289,6 +287,8 @@
 		94E3C44D1A2F6BE600AFE1A7 /* GetFit */ = {
 			isa = PBXGroup;
 			children = (
+				94270A451A546F2D00453F6D /* Resources.h */,
+				94270A461A546F2D00453F6D /* Resources.m */,
 				94270A411A546E5000453F6D /* Pickers */,
 				94DFCF2D1A3A0CFF00874346 /* Page */,
 				9458002E1A50C8BF000936FC /* Exercise */,
@@ -581,7 +581,6 @@
 				94E3C4AE1A2FA93C00AFE1A7 /* TSocketServer.m in Sources */,
 				94C378DD1A51F0D500370461 /* MinuteStore.m in Sources */,
 				94E3C4B31A2FA93C00AFE1A7 /* TMemoryBuffer.m in Sources */,
-				94270A441A546E7100453F6D /* ActivityPicker.m in Sources */,
 				94E3C4B51A2FA93C00AFE1A7 /* TNSStreamTransport.m in Sources */,
 				94270A3E1A545E5A00453F6D /* ExerciseVC.m in Sources */,
 				945628711A4225DB00A2B9A7 /* GraphVC.m in Sources */,
@@ -589,6 +588,7 @@
 				9456285D1A41FAD700A2B9A7 /* GraphView.m in Sources */,
 				94E3C4B81A2FA93C00AFE1A7 /* TSSLSocketException.m in Sources */,
 				94E3C4AD1A2FA93C00AFE1A7 /* TProtocolUtil.m in Sources */,
+				94270A471A546F2D00453F6D /* Resources.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
