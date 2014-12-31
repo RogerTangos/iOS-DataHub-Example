@@ -11,6 +11,18 @@
 
 @implementation MinuteEntry
 
+- (instancetype) init {
+    self = [super init];
+    
+    if ([super init]) {
+        _activity = @"";
+        _intensity = @"";
+        _duration = 0;
+        _endTime = [NSDate date];
+    }
+    return self;
+}
+
 - (instancetype) initEntryWithActivity:(NSString *)activity
                             intensity:(NSString *)intensity
                              duration:(NSInteger)duration
