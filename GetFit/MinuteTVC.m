@@ -383,7 +383,7 @@
     if ([indexPath isEqual:pickerPath]) {
         switch (indexPath.row) {
             case 1:
-                return 110;
+                return 150;
             case 2:
                 return 75;
             case 3:
@@ -402,9 +402,9 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    //    if (section == 0) {
-    //        return 0;
-    //    }
+        if (section == 0) {
+            return 0;
+        }
     
     return subHeaderHeight;
 }
@@ -412,9 +412,9 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     // for the first section alone, this isn't necessary
-//    if (section == 0) {
-//        return nil;
-//    }
+    if (section == 0) {
+        return nil;
+    }
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, subHeaderHeight)];
     [view setBackgroundColor:[UIColor whiteColor]];

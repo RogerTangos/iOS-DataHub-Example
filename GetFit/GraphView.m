@@ -13,10 +13,12 @@
 - (id) initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
+        self.contentSize = CGSizeMake(self.bounds.size.width, 800);
         self.backgroundColor = [UIColor whiteColor];
         
         [self addGraphOne];
         [self addGraphTwo];
+        [self addGraphThree];
 
         
     }
@@ -24,34 +26,46 @@
 }
 
 - (void) addGraphOne {
-    UIView *catView = [[UIView alloc] initWithFrame:CGRectMake(20, 60, 320-40, 200- 40)];
+    UIView *chartView = [[UIView alloc] initWithFrame:CGRectMake(15, 60, 320, 196)];
     
-    UIImage *image = [UIImage imageNamed:@"GraphOne.jpg"];
+    UIImage *image = [UIImage imageNamed:@"chart_line.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
 
-    imageView.frame = catView.bounds;
+    imageView.frame = chartView.bounds;
     
-    [catView addSubview:imageView];
+    [chartView addSubview:imageView];
     
-    [self addSubview:catView];
+    [self addSubview:chartView];
     
     
 }
 
 - (void) addGraphTwo {
-    UIView *catView = [[UIView alloc] initWithFrame:CGRectMake(20, 250, 320-40, 200- 40)];
+    UIView *chartView = [[UIView alloc] initWithFrame:CGRectMake(15, 275, 320, 196)];
     
-    UIImage *image = [UIImage imageNamed:@"GraphTwo.jpg"];
+    UIImage *image = [UIImage imageNamed:@"chart_pie.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     
-    imageView.frame = catView.bounds;
+    imageView.frame = chartView.bounds;
     
-    [catView addSubview:imageView];
+    [chartView addSubview:imageView];
     
-    [self addSubview:catView];
-
-    
+    [self addSubview:chartView];
 }
+
+- (void) addGraphThree {
+    UIView *chartView = [[UIView alloc] initWithFrame:CGRectMake(15, 490, 320, 196)];
+    
+    UIImage *image = [UIImage imageNamed:@"chart_column.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    
+    imageView.frame = chartView.bounds;
+    
+    [chartView addSubview:imageView];
+    
+    [self addSubview:chartView];
+}
+
 
 
 

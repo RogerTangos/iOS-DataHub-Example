@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		94270A3E1A545E5A00453F6D /* ExerciseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94270A3D1A545E5A00453F6D /* ExerciseVC.m */; };
 		94270A471A546F2D00453F6D /* Resources.m in Sources */ = {isa = PBXBuildFile; fileRef = 94270A461A546F2D00453F6D /* Resources.m */; };
+		94270A4B1A54941800453F6D /* chart_column.png in Resources */ = {isa = PBXBuildFile; fileRef = 94270A481A54941800453F6D /* chart_column.png */; };
+		94270A4C1A54941800453F6D /* chart_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 94270A491A54941800453F6D /* chart_line.png */; };
+		94270A4D1A54941800453F6D /* chart_pie.png in Resources */ = {isa = PBXBuildFile; fileRef = 94270A4A1A54941800453F6D /* chart_pie.png */; };
 		944A44631A4F7E37009FA078 /* ActivityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944A44621A4F7E37009FA078 /* ActivityPickerView.m */; };
 		9456285D1A41FAD700A2B9A7 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456285C1A41FAD700A2B9A7 /* GraphView.m */; };
 		945628601A4203A200A2B9A7 /* AboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456285F1A4203A200A2B9A7 /* AboutView.m */; };
@@ -79,6 +82,9 @@
 		94270A3D1A545E5A00453F6D /* ExerciseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseVC.m; sourceTree = "<group>"; };
 		94270A451A546F2D00453F6D /* Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../Resources.h; sourceTree = "<group>"; };
 		94270A461A546F2D00453F6D /* Resources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Resources.m; path = ../Resources.m; sourceTree = "<group>"; };
+		94270A481A54941800453F6D /* chart_column.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart_column.png; sourceTree = "<group>"; };
+		94270A491A54941800453F6D /* chart_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart_line.png; sourceTree = "<group>"; };
+		94270A4A1A54941800453F6D /* chart_pie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart_pie.png; sourceTree = "<group>"; };
 		944A44611A4F7E37009FA078 /* ActivityPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityPickerView.h; sourceTree = "<group>"; };
 		944A44621A4F7E37009FA078 /* ActivityPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityPickerView.m; sourceTree = "<group>"; };
 		9456285B1A41FAD700A2B9A7 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
@@ -287,6 +293,9 @@
 		94E3C44D1A2F6BE600AFE1A7 /* GetFit */ = {
 			isa = PBXGroup;
 			children = (
+				94270A481A54941800453F6D /* chart_column.png */,
+				94270A491A54941800453F6D /* chart_line.png */,
+				94270A4A1A54941800453F6D /* chart_pie.png */,
 				94270A451A546F2D00453F6D /* Resources.h */,
 				94270A461A546F2D00453F6D /* Resources.m */,
 				94270A411A546E5000453F6D /* Pickers */,
@@ -535,9 +544,12 @@
 			files = (
 				94E3C45A1A2F6BE600AFE1A7 /* Main.storyboard in Resources */,
 				947378E61A42384E00DF933C /* GraphTwo.jpg in Resources */,
+				94270A4B1A54941800453F6D /* chart_column.png in Resources */,
+				94270A4C1A54941800453F6D /* chart_line.png in Resources */,
 				94E3C45F1A2F6BE600AFE1A7 /* LaunchScreen.xib in Resources */,
 				94E3C45C1A2F6BE600AFE1A7 /* Images.xcassets in Resources */,
 				947378E51A42384E00DF933C /* GraphOne.jpg in Resources */,
+				94270A4D1A54941800453F6D /* chart_pie.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
