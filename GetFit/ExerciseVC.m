@@ -12,8 +12,13 @@
 @interface ExerciseVC ()
 
 @property NSString *currentlyEditing;
-@property UITextField *activityField;
-@property UITextField *intensityField;
+
+;
+@property UIButton *intensityButton;
+@property UIButton *activityButton;
+
+@property UIPickerView *activityPicker;
+@property UIPickerView *intensityPicker;
 
 @end
 
@@ -23,53 +28,50 @@
     [super viewDidLoad];
     _currentlyEditing = @"";
     
+    _activityPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-250, self.view.bounds.size.width, 216)];
+    _activityPicker.dataSource = self;
+    _activityPicker.delegate = self;
+    [_activityPicker setBackgroundColor:[UIColor whiteColor]];
+
+    
+    _intensityPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-250, self.view.bounds.size.width, 216)];
+    _intensityPicker.dataSource = self;
+    _intensityPicker.delegate = self;
+    [_intensityPicker setBackgroundColor:[UIColor whiteColor]];
+    [_intensityPicker reloadAllComponents];
+
+    
     UITapGestureRecognizer* tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPickers)];
     [tapBackground setNumberOfTapsRequired:1];
     [self.view addGestureRecognizer:tapBackground];
-    
-    UIPickerView *activityPicker = [[UIPickerView alloc] init];
-    activityPicker.dataSource = self;
-    activityPicker.delegate = self;
-    activityPicker.tag = 0;
-    [activityPicker setBackgroundColor:[UIColor whiteColor]];
-    
-    UIPickerView *intensityPicker = [[UIPickerView alloc] init];
-    intensityPicker.dataSource = self;
-    intensityPicker.delegate = self;
-    intensityPicker.tag = 1;
-    [intensityPicker setBackgroundColor:[UIColor whiteColor]];
     
     // some useful varibales
     CGRect windowFrame = self.view.frame;
     CGFloat buttonWidth = 125;
     UIColor *systemBlue = [UIColor colorWithRed:0 green:0.478431 blue:1.0 alpha:1.0];
-   
-    // make textFields for pickers
-    _activityField = [[UITextField alloc] initWithFrame:CGRectMake(25, 100, buttonWidth, buttonWidth)];
-    [_activityField setText:@"-select activity-"];
-    [_activityField setTextColor:systemBlue];
-    _activityField.layer.cornerRadius = _activityField.bounds.size.width/2;
-    _activityField.inputView = activityPicker;
-    _activityField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    _activityField.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    //    [_activityField setBackgroundColor:[UIColor grayColor]];
-    _activityField.layer.borderWidth = 1.0;
-    [_activityField.layer setBorderColor:[systemBlue CGColor]];
-    [_activityField addTarget:self action:@selector(editAction) forControlEvents:UIControlEventEditingDidBegin];
-    [self.view addSubview:_activityField];
     
-    _intensityField = [[UITextField alloc] initWithFrame:CGRectMake(windowFrame.size.width-25-buttonWidth, 100, buttonWidth, buttonWidth)];
-    [ _intensityField setText:@"-select intensity-"];
-    [ _intensityField setTextColor:systemBlue];
-    _intensityField.layer.cornerRadius =  _intensityField.bounds.size.width/2;
-    _intensityField.inputView = intensityPicker;
-    _intensityField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    _intensityField.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    //    [ _intensityField setBackgroundColor:[UIColor grayColor]];
-    _intensityField.layer.borderWidth = 1.0;
-    [_intensityField addTarget:self action:@selector(editIntensity) forControlEvents:UIControlEventEditingDidBegin];
-    [ _intensityField.layer setBorderColor:[systemBlue CGColor]];
-    [self.view addSubview: _intensityField];
+    _activityButton = [[UIButton alloc] initWithFrame:CGRectMake(25, 100, buttonWidth, buttonWidth)];
+    [_activityButton setTitle:@"-select action" forState:UIControlStateNormal];
+    [_activityButton setTitleColor:systemBlue forState:UIControlStateNormal];
+    _activityButton.layer.cornerRadius = _activityButton.bounds.size.width/2;
+    _activityButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    _activityButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    _activityButton.layer.borderWidth = 1.0;
+    [_activityButton.layer setBorderColor:[systemBlue CGColor]];
+    [_activityButton addTarget:self action:@selector(editAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_activityButton];
+    
+    
+    _intensityButton = [[UIButton alloc] initWithFrame:CGRectMake(windowFrame.size.width-25-buttonWidth, 100, buttonWidth, buttonWidth)];
+    [ _intensityButton setTitle:@"-select intensity-" forState:UIControlStateNormal];
+    [ _intensityButton setTitleColor:systemBlue forState:UIControlStateNormal];
+    _intensityButton.layer.cornerRadius =  _intensityButton.bounds.size.width/2;
+    _intensityButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    _intensityButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    _intensityButton.layer.borderWidth = 1.0;
+    [_intensityButton addTarget:self action:@selector(editIntensity) forControlEvents:UIControlEventTouchUpInside];
+    [ _intensityButton.layer setBorderColor:[systemBlue CGColor]];
+    [self.view addSubview: _intensityButton];
     
     
     UIButton *startButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -83,21 +85,49 @@
     [self.view addSubview:startButton];
 }
 
+
+- (void) dismissPickers {
+    [UIView beginAnimations:@"MoveOut" context:nil];
+    [_activityPicker removeFromSuperview];
+    [_intensityPicker removeFromSuperview];
+    [UIView commitAnimations];
+    
+}
+
+#pragma mark - buttons
+
 - (void) startRecording {
     NSLog(@"start button pressed");
     [self dismissPickers];
 }
 
 - (void) editAction {
+    NSLog(@"editAction reached");
     _currentlyEditing = @"action";
+    
+    
+    [UIView beginAnimations:@"MoveOut" context:nil];
+    [_intensityPicker removeFromSuperview];
+    [UIView commitAnimations];
+    
+    [UIView beginAnimations:@"MoveIn" context:nil];
+    [self.view insertSubview:_activityPicker aboveSubview:self.view];
+    [UIView commitAnimations];
+    
 }
 
 - (void) editIntensity {
+    NSLog(@"editIntensity reached");
     _currentlyEditing = @"intensity";
-}
+    
 
-- (void) dismissPickers {
-    [self.view endEditing:YES];
+    [_activityPicker removeFromSuperview];
+    [UIView commitAnimations];
+
+    
+    [UIView beginAnimations:@"MoveIn" context:nil];
+    [self.view insertSubview:_intensityPicker aboveSubview:self.view];
+    [UIView commitAnimations];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -123,7 +153,7 @@
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     Resources *resources = [Resources sharedResources];
-    if ([_currentlyEditing isEqualToString:@"action"]) {
+    if (pickerView == _activityPicker) {
         return [resources.activities objectAtIndex:row];
     }
     
@@ -133,12 +163,11 @@
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     Resources *resources = [Resources sharedResources];
     
-    if ([_currentlyEditing isEqualToString:@"action"]) {
-        [_activityField setText:[resources.activities objectAtIndex:row]];
-        [_activityField setTextAlignment:NSTextAlignmentCenter];
+    if (pickerView == _activityPicker) {
+        [_activityButton setTitle:[resources.activities objectAtIndex:row ] forState:UIControlStateNormal];
+//        [_activityButton setTextAlignment:NSTextAlignmentCenter];
     } else {
-        [_intensityField setText:[resources.intensities objectAtIndex:row]];
-        [_intensityField setTextAlignment:NSTextAlignmentCenter];
+        [_intensityButton setTitle:[resources.intensities objectAtIndex:row] forState:UIControlStateNormal];
     }
     
 }
