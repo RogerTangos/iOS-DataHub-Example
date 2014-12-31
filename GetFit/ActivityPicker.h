@@ -1,5 +1,5 @@
 //
-//  ExerciseVC.h
+//  ActivityPicker.h
 //  GetFit
 //
 //  Created by Albert Carter on 12/31/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExerciseVC : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface ActivityPicker : UIPickerView
 
 @end

@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94270A3E1A545E5A00453F6D /* ExerciseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94270A3D1A545E5A00453F6D /* ExerciseVC.m */; };
+		94270A441A546E7100453F6D /* ActivityPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 94270A431A546E7100453F6D /* ActivityPicker.m */; };
 		944A44631A4F7E37009FA078 /* ActivityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944A44621A4F7E37009FA078 /* ActivityPickerView.m */; };
 		9456285D1A41FAD700A2B9A7 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456285C1A41FAD700A2B9A7 /* GraphView.m */; };
 		945628601A4203A200A2B9A7 /* AboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9456285F1A4203A200A2B9A7 /* AboutView.m */; };
 		945628681A4214A900A2B9A7 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945628671A4214A900A2B9A7 /* AboutVC.m */; };
 		945628711A4225DB00A2B9A7 /* GraphVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945628701A4225DB00A2B9A7 /* GraphVC.m */; };
 		945800181A50BF04000936FC /* PageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945800171A50BF04000936FC /* PageVC.m */; };
-		945800321A50C8E9000936FC /* ExerciseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 945800301A50C8E9000936FC /* ExerciseVC.m */; };
-		945800331A50C8E9000936FC /* ExerciseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945800311A50C8E9000936FC /* ExerciseVC.xib */; };
 		947378E51A42384E00DF933C /* GraphOne.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 947378E31A42384E00DF933C /* GraphOne.jpg */; };
 		947378E61A42384E00DF933C /* GraphTwo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 947378E41A42384E00DF933C /* GraphTwo.jpg */; };
 		947378F51A435A9200DF933C /* MinuteTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947378F41A435A9200DF933C /* MinuteTVC.m */; };
@@ -75,6 +75,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		94270A3C1A545E5A00453F6D /* ExerciseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseVC.h; sourceTree = "<group>"; };
+		94270A3D1A545E5A00453F6D /* ExerciseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseVC.m; sourceTree = "<group>"; };
+		94270A421A546E7100453F6D /* ActivityPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityPicker.h; sourceTree = "<group>"; };
+		94270A431A546E7100453F6D /* ActivityPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityPicker.m; sourceTree = "<group>"; };
 		944A44611A4F7E37009FA078 /* ActivityPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityPickerView.h; sourceTree = "<group>"; };
 		944A44621A4F7E37009FA078 /* ActivityPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityPickerView.m; sourceTree = "<group>"; };
 		9456285B1A41FAD700A2B9A7 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
@@ -87,9 +91,6 @@
 		945628701A4225DB00A2B9A7 /* GraphVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphVC.m; sourceTree = "<group>"; };
 		945800161A50BF04000936FC /* PageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageVC.h; sourceTree = "<group>"; };
 		945800171A50BF04000936FC /* PageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageVC.m; sourceTree = "<group>"; };
-		9458002F1A50C8E9000936FC /* ExerciseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseVC.h; sourceTree = "<group>"; };
-		945800301A50C8E9000936FC /* ExerciseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseVC.m; sourceTree = "<group>"; };
-		945800311A50C8E9000936FC /* ExerciseVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExerciseVC.xib; sourceTree = "<group>"; };
 		947378E31A42384E00DF933C /* GraphOne.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GraphOne.jpg; sourceTree = "<group>"; };
 		947378E41A42384E00DF933C /* GraphTwo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GraphTwo.jpg; sourceTree = "<group>"; };
 		947378F31A435A9200DF933C /* MinuteTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinuteTVC.h; sourceTree = "<group>"; };
@@ -182,6 +183,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94270A411A546E5000453F6D /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				94270A421A546E7100453F6D /* ActivityPicker.h */,
+				94270A431A546E7100453F6D /* ActivityPicker.m */,
+			);
+			name = Pickers;
+			sourceTree = "<group>";
+		};
 		9458002C1A50C1CA000936FC /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,9 +217,8 @@
 		9458002E1A50C8BF000936FC /* Exercise */ = {
 			isa = PBXGroup;
 			children = (
-				9458002F1A50C8E9000936FC /* ExerciseVC.h */,
-				945800301A50C8E9000936FC /* ExerciseVC.m */,
-				945800311A50C8E9000936FC /* ExerciseVC.xib */,
+				94270A3C1A545E5A00453F6D /* ExerciseVC.h */,
+				94270A3D1A545E5A00453F6D /* ExerciseVC.m */,
 			);
 			name = Exercise;
 			sourceTree = "<group>";
@@ -280,6 +289,7 @@
 		94E3C44D1A2F6BE600AFE1A7 /* GetFit */ = {
 			isa = PBXGroup;
 			children = (
+				94270A411A546E5000453F6D /* Pickers */,
 				94DFCF2D1A3A0CFF00874346 /* Page */,
 				9458002E1A50C8BF000936FC /* Exercise */,
 				9458002D1A50C1D0000936FC /* Graph */,
@@ -525,7 +535,6 @@
 			files = (
 				94E3C45A1A2F6BE600AFE1A7 /* Main.storyboard in Resources */,
 				947378E61A42384E00DF933C /* GraphTwo.jpg in Resources */,
-				945800331A50C8E9000936FC /* ExerciseVC.xib in Resources */,
 				94E3C45F1A2F6BE600AFE1A7 /* LaunchScreen.xib in Resources */,
 				94E3C45C1A2F6BE600AFE1A7 /* Images.xcassets in Resources */,
 				947378E51A42384E00DF933C /* GraphOne.jpg in Resources */,
@@ -562,7 +571,6 @@
 				945628681A4214A900A2B9A7 /* AboutVC.m in Sources */,
 				94E3C4B71A2FA93C00AFE1A7 /* TSSLSocketClient.m in Sources */,
 				94E3C4541A2F6BE600AFE1A7 /* AppDelegate.m in Sources */,
-				945800321A50C8E9000936FC /* ExerciseVC.m in Sources */,
 				94E3C4B61A2FA93C00AFE1A7 /* TSocketClient.m in Sources */,
 				94E3C4AA1A2FA93C00AFE1A7 /* TMultiplexedProtocol.m in Sources */,
 				94E3C4511A2F6BE600AFE1A7 /* main.m in Sources */,
@@ -573,7 +581,9 @@
 				94E3C4AE1A2FA93C00AFE1A7 /* TSocketServer.m in Sources */,
 				94C378DD1A51F0D500370461 /* MinuteStore.m in Sources */,
 				94E3C4B31A2FA93C00AFE1A7 /* TMemoryBuffer.m in Sources */,
+				94270A441A546E7100453F6D /* ActivityPicker.m in Sources */,
 				94E3C4B51A2FA93C00AFE1A7 /* TNSStreamTransport.m in Sources */,
+				94270A3E1A545E5A00453F6D /* ExerciseVC.m in Sources */,
 				945628711A4225DB00A2B9A7 /* GraphVC.m in Sources */,
 				94E3C4B01A2FA93C00AFE1A7 /* TException.m in Sources */,
 				9456285D1A41FAD700A2B9A7 /* GraphView.m in Sources */,
