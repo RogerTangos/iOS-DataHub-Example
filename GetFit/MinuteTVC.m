@@ -56,7 +56,7 @@
     // populate the picker option arrays
     Resources *resources = [Resources sharedResources];
     activities = resources.activities;
-    intensities = resources.activities;
+    intensities = resources.intensities;
     durations = resources.durations;
     
     // create the pickers
@@ -236,6 +236,18 @@
 }
 
 #pragma mark - helper methods
+- (void) hideAllDeselctedPickers {
+    NSArray *pickers = @[activityPicker, intensityPicker, durationPicker, endTimePicker];
+    for (int i = 0; i < [pickers count]; i++) {
+        UIView *picker = pickers[i];
+        if (pickerPath.row-1 != i) {
+            picker.hidden = YES;
+        } else {
+            picker.hidden = NO;
+        }
+    }
+}
+
 - (NSInteger) minutesFromString:(NSString*)str {
     // method to computer the number of minutes from duration picker
     
@@ -312,6 +324,7 @@
         NSIndexPath * tempPickerPath = [NSIndexPath indexPathForRow:pickerPath.row inSection:pickerPath.section];
         pickerPath = nil;
         [self.tableView deleteRowsAtIndexPaths:@[tempPickerPath] withRowAnimation:UITableViewRowAnimationMiddle];
+        // [self.tableView]
         
         // dynamic setting for pickerPath, since we may just have deleted a row above or below the indexPath
         if (indexPath.row < tempPickerPath.row) {
@@ -332,6 +345,8 @@
         pickerPath = nil;
         [self.tableView deleteRowsAtIndexPaths:@[tempPickerPath] withRowAnimation:UITableViewRowAnimationMiddle];
     }
+    
+    [self hideAllDeselctedPickers];
     
     
 }
