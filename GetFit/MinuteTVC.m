@@ -18,7 +18,6 @@
     NSMutableArray *minuteArr;
     
     NSIndexPath *pickerPath;
-    BOOL minuteSetup;
     
     UIPickerView * activityPicker;
     UIPickerView * intensityPicker;
@@ -88,11 +87,6 @@
     MinuteEntry *minuteEntry = [[MinuteEntry alloc] initEntryWithActivity:@"" intensity:@"" duration:0 andEndTime:[NSDate date]];
     [minuteArr addObject:minuteEntry];
     
-    
-    // default to just one entry and to just having setup the view whenever the view appears/reappears,
-
-    minuteSetup = YES;
-    
     // resetup the dateTimePicker, so it uses the most current date
     endTimePicker = [[UIDatePicker alloc] init];
     endTimePicker.datePickerMode = UIDatePickerModeDateAndTime;
@@ -134,10 +128,17 @@
 }
 
 - (void) newMinuteEntryForTable {
-    MinuteEntry *minuteEntry = [[MinuteEntry alloc] initEntryWithActivity:@"" intensity:@"" duration:0 andEndTime:[NSDate date]];
+    // create a new minuteEntry
+    MinuteEntry *minuteEntry = [[MinuteEntry alloc] init];
     [minuteArr addObject:minuteEntry];
+    
+    // add the new section
     NSUInteger numberOfSections = [minuteArr count] -1; //computing this within indexSetWithIndex crashes
     [self.tableView insertSections:[NSIndexSet indexSetWithIndex:numberOfSections] withRowAnimation:UITableViewRowAnimationBottom];
+
+    // reload the previous section, which will delete its footer
+    NSUInteger oneLessThanNumberOfSections = numberOfSections - 1;
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:oneLessThanNumberOfSections] withRowAnimation:UITableViewRowAnimationNone];
     
 }
 
@@ -165,14 +166,17 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
-    NSLog(@"The pickerPath.row is: %d", pickerPath.row);
+//    NSLog(@"The pickerPath.row is: %ld", (long)pickerPath.row);
     switch (pickerPath.row) {
         case 1:
             return [activities count];
+            break;
         case 2:
             return [intensities count];
+            break;
         case 3:
             return [durations count];
+            break;
         default:
             return 4;
     }
@@ -269,10 +273,20 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // activity, intensity, duration, end time
-    if (minuteSetup) {
-        return 4;
-    } else {
+    NSLog(@"section: %ld", (long)section);
+    
+    // This is causing problems with adding new sections.
+//case: section 0, no picker, insert picker -> should return 5
+//case: section 0, no picker, insert section -> should return 4
+//case: section 1, no picker, insert picker -> should return 5
+    NSLog(@"indexPath .section: %ld", (long)section);
+    NSLog(@"pickerPath .row: %ld, .section: %ld", (long)pickerPath.row, (long)pickerPath.section);
+    
+    // must check pickerPath for nil, because pickerPath.section isTypeOf NSInt, where 0 == NO;
+    if (pickerPath !=nil && pickerPath.section == section) {
         return 5;
+    } else {
+        return 4;
     }
 }
 
@@ -280,15 +294,21 @@
     
     // create or delete the picker row.
     // if creating a row, assign the picker path
-    if (minuteSetup) {
-        minuteSetup = NO;
+    if (pickerPath==nil) {
         pickerPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section];
+        
+        NSLog(@"indexPath .row: %ld, .section: %ld", (long)indexPath.row, (long)indexPath.section);
+        NSLog(@"pickerPath .row: %ld, .section: %ld", (long)pickerPath.row, (long)pickerPath.section);
+        
+        
+        [self.tableView beginUpdates];
         [self.tableView insertRowsAtIndexPaths:@[pickerPath] withRowAnimation:UITableViewRowAnimationMiddle];
+        [self.tableView endUpdates];
+        
     } else if (pickerPath.section == indexPath.section && pickerPath.row -1 != indexPath.row){
         // picker is open, and user has clicked a row not related to the picker
         
         // delete the old picker
-        minuteSetup = YES;
         NSIndexPath * tempPickerPath = [NSIndexPath indexPathForRow:pickerPath.row inSection:pickerPath.section];
         pickerPath = nil;
         [self.tableView deleteRowsAtIndexPaths:@[tempPickerPath] withRowAnimation:UITableViewRowAnimationMiddle];
@@ -301,15 +321,13 @@
         }
         
         // make a new picker
-        minuteSetup = NO;
         [self.tableView insertRowsAtIndexPaths:@[pickerPath] withRowAnimation:UITableViewRowAnimationMiddle];
         
     } else {
         // simple case.
-        // clear minuteSetup and pickerPath. use tempPickerPath for deleting the row
+        // clear pickerPath. use tempPickerPath for deleting the row
         // because when deleteRowsAtIndexPaths is called, it calls heightForRowAtIndexPath,
         // which uses pickerPath to determine cell height.
-        minuteSetup = YES;
         NSIndexPath * tempPickerPath = [NSIndexPath indexPathForRow:pickerPath.row inSection:pickerPath.section];
         pickerPath = nil;
         [self.tableView deleteRowsAtIndexPaths:@[tempPickerPath] withRowAnimation:UITableViewRowAnimationMiddle];
@@ -325,9 +343,13 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
-    
+    NSLog(@"--cellForRowAtIndexPath--");
+    NSLog(@"indexPath .row: %ld, .section: %ld", (long)indexPath.row, (long)indexPath.section);
+    NSLog(@"pickerPath .row: %ld, .section: %ld", (long)pickerPath.row, (long)pickerPath.section);
+    NSLog(@"--/ cellForRowAtIndexPath--");
+          
     // see [self setCellVisibilityAtIndexPath] for hiding/showing pickers
-    if (minuteSetup) {
+    if (pickerPath == nil) {
         // work out the currentDate, since you it's not possible in a switch statement
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         dateFormatter.timeStyle = NSDateFormatterShortStyle;
@@ -417,7 +439,7 @@
     }
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, subHeaderHeight)];
-    [view setBackgroundColor:[UIColor whiteColor]];
+    [view setBackgroundColor:[UIColor lightGrayColor]];
     
     UILabel *headerLabel = [[UILabel alloc] init];
     headerLabel.frame = CGRectMake(15, 15, tableView.frame.size.width, subHeaderHeight/2);
@@ -431,7 +453,6 @@
 
 # pragma mark
 
-
 - (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     
     if (section == [minuteArr count]-1) {
@@ -444,17 +465,17 @@
     
     if (section == [minuteArr count]-1) {
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, bottomFooterHeight)];
-        [view setBackgroundColor:[UIColor whiteColor]];
+        [view setBackgroundColor:[UIColor orangeColor]];
         
-        // add entry button
+        // add section button
         UIButton *additionalButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        additionalButton.frame = CGRectMake(tableView.frame.size.width/2+20, 0, 100, bottomFooterHeight);
-        [additionalButton setTitle:@"add entries" forState:UIControlStateNormal];
+        additionalButton.frame = CGRectMake(tableView.frame.size.width/2+20, 0, 150, bottomFooterHeight);
+        [additionalButton setTitle:@"add more entries" forState:UIControlStateNormal];
         [additionalButton setTitleColor:[UIColor colorWithRed:0 green:0.478431 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
         [additionalButton addTarget:self action:@selector(newMinuteEntryForTable) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:additionalButton];
         
-        
+        // remove section
         UIButton *fewerButton = [UIButton buttonWithType:UIButtonTypeCustom];
         fewerButton.frame = CGRectMake(tableView.frame.size.width/2-120, 0, 120, bottomFooterHeight);
         [fewerButton setTitle:@"remove entries" forState:UIControlStateNormal];
@@ -462,10 +483,6 @@
         [fewerButton addTarget:self action:@selector(removeMinuteEntryFromTable) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:fewerButton];
     
-        // refresh the table
-//        self.refreshControl = [[UIRefreshControl alloc] init];
-        
-       
         return view;
     }
     return nil;
