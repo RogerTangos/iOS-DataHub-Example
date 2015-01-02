@@ -132,6 +132,11 @@
     MinuteEntry *minuteEntry = [[MinuteEntry alloc] init];
     [minuteArr addObject:minuteEntry];
     
+    // hide the picker and delete the related cell because having it open creates an infinite loop somewhere in the tableviewDelegate code
+    NSIndexPath * tempPickerPath = [NSIndexPath indexPathForRow:pickerPath.row inSection:pickerPath.section];
+    pickerPath = nil;
+    [self.tableView deleteRowsAtIndexPaths:@[tempPickerPath] withRowAnimation:UITableViewRowAnimationMiddle];
+    
     // add the new section
     NSUInteger numberOfSections = [minuteArr count] -1; //computing this within indexSetWithIndex crashes
     [self.tableView insertSections:[NSIndexSet indexSetWithIndex:numberOfSections] withRowAnimation:UITableViewRowAnimationBottom];
@@ -139,7 +144,6 @@
     // reload the previous section, which will delete its footer
     NSUInteger oneLessThanNumberOfSections = numberOfSections - 1;
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:oneLessThanNumberOfSections] withRowAnimation:UITableViewRowAnimationNone];
-    
 }
 
 - (void) removeMinuteEntryFromTable {
@@ -240,7 +244,7 @@
     NSArray *pickers = @[activityPicker, intensityPicker, durationPicker, endTimePicker];
     for (int i = 0; i < [pickers count]; i++) {
         UIView *picker = pickers[i];
-        if (pickerPath.row-1 != i) {
+        if (pickerPath == nil || pickerPath.row-1 != i) {
             picker.hidden = YES;
         } else {
             picker.hidden = NO;
@@ -364,7 +368,7 @@
     NSLog(@"--/ cellForRowAtIndexPath--");
           
     // see [self setCellVisibilityAtIndexPath] for hiding/showing pickers
-    if (pickerPath == nil) {
+    if (pickerPath == nil || pickerPath.section != indexPath.section) {
         // work out the currentDate, since you it's not possible in a switch statement
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         dateFormatter.timeStyle = NSDateFormatterShortStyle;
@@ -422,7 +426,7 @@
             case 1:
                 return 150;
             case 2:
-                return 75;
+                return 90;
             case 3:
                 return 110;
             case 4:
@@ -438,6 +442,8 @@
 # pragma mark - table sections and buttons
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    return 0;
     
         if (section == 0) {
             return 0;
@@ -467,7 +473,7 @@
 }
 
 # pragma mark
-
+/*
 - (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     
     if (section == [minuteArr count]-1) {
@@ -504,7 +510,7 @@
 
 }
 
-
+*/
 
 
 /*
