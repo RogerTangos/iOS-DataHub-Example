@@ -12,7 +12,6 @@
 #import "MinuteStore.h"
 #import "MinuteEntry.h"
 
-#import "OpenSense.h"
 
 
 @interface ExerciseVC ()
@@ -128,9 +127,9 @@
     if (_exercising) {
         [_startButton setTitle:@"Stop" forState:UIControlStateNormal];
          _startTime = [NSDate timeIntervalSinceReferenceDate];
-        [[OpenSense sharedInstance] startCollector];
+//        [[OpenSense sharedInstance] startCollector];
         
-        NSLog(@"%@", [[OpenSense sharedInstance] availableProbes]);
+//        NSLog(@"%@", [[OpenSense sharedInstance] availableProbes]);
         
         [self updateStopwatch];
     } else {
