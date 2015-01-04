@@ -12,6 +12,9 @@
 #import "MinuteStore.h"
 #import "MinuteEntry.h"
 
+#import "OpenSense.h"
+
+
 @interface ExerciseVC ()
 
 @property MinuteEntry *minuteEntry;
@@ -125,12 +128,17 @@
     if (_exercising) {
         [_startButton setTitle:@"Stop" forState:UIControlStateNormal];
          _startTime = [NSDate timeIntervalSinceReferenceDate];
+        [[OpenSense sharedInstance] startCollector];
+        
+        NSLog(@"%@", [[OpenSense sharedInstance] availableProbes]);
+        
         [self updateStopwatch];
     } else {
         [_startButton setTitle:@"Start" forState:UIControlStateNormal];
         
         [self saveMinuteEntry];
-        
+//        [[OpenSense sharedInstance] stopCollector];
+
         // clear the pickers
         [ _activityButton setTitle:@"-select activity-" forState:UIControlStateNormal];
         [ _intensityButton setTitle:@"-select intensity-" forState:UIControlStateNormal];

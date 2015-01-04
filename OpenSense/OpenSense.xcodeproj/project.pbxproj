@@ -179,6 +179,7 @@
 		3DFE5426169608CF00E09161 /* OSLocalStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OSLocalStorage.m; path = LocalStorage/OSLocalStorage.m; sourceTree = "<group>"; };
 		9413FB13198C1A7B001F62AD /* OSActivityManagerProbe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSActivityManagerProbe.h; sourceTree = "<group>"; };
 		9413FB14198C1A7B001F62AD /* OSActivityManagerProbe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSActivityManagerProbe.m; sourceTree = "<group>"; };
+		944860AF1A589861007946CA /* libOpenSense.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOpenSense.a; path = "../../../Library/Developer/Xcode/DerivedData/OpenSense_Collector-bjfkuadgoczlpvabdssjctmkkydo/Build/Products/Debug-iphoneos/libOpenSense.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +280,7 @@
 		3DDED69D167D04CF006DE4F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				944860AF1A589861007946CA /* libOpenSense.a */,
 				3DB69F0016B1D74A009570F3 /* CoreMotion.framework */,
 				3DA2596516B087A800190683 /* CoreLocation.framework */,
 				3D7A747516B03D34000B4A0D /* MobileCoreServices.framework */,
@@ -636,6 +638,10 @@
 				DSTROOT = /tmp/OpenSense.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenSense/OpenSense-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/OpenSense_Collector-bjfkuadgoczlpvabdssjctmkkydo/Build/Products/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -648,6 +654,10 @@
 				DSTROOT = /tmp/OpenSense.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenSense/OpenSense-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/OpenSense_Collector-bjfkuadgoczlpvabdssjctmkkydo/Build/Products/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

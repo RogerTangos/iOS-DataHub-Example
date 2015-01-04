@@ -52,6 +52,7 @@
 
 - (BOOL)startCollector
 {
+    OSLog(@"collector started");
     // Make sure that the collector process is not already running
     if (isRunning) {
         return NO;
@@ -85,6 +86,7 @@
 
 - (void)stopCollector
 {
+    OSLog(@"collector stopped");
     // Only stop collector process if it is already running
     OSLog(@"OpenSense stopCollector called");
     if (!isRunning) {
