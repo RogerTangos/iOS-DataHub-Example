@@ -22,6 +22,10 @@
 		947378E61A42384E00DF933C /* GraphTwo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 947378E41A42384E00DF933C /* GraphTwo.jpg */; };
 		947378F51A435A9200DF933C /* MinuteTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 947378F41A435A9200DF933C /* MinuteTVC.m */; };
 		9499C9641A321A27004CEB67 /* OAuthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9499C9631A321A27004CEB67 /* OAuthVC.m */; };
+		94AA07C71A59D6F1006DECE7 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 94AA07AA1A59D6F1006DECE7 /* config.json */; };
+		94AA07C81A59D6F1006DECE7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94AA07AB1A59D6F1006DECE7 /* InfoPlist.strings */; };
+		94AA07C91A59D6F1006DECE7 /* LocalStorageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AA07AE1A59D6F1006DECE7 /* LocalStorageTests.m */; };
+		94AA07CA1A59D6F1006DECE7 /* OpenSenseTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94AA07AF1A59D6F1006DECE7 /* OpenSenseTests-Info.plist */; };
 		94C378DA1A51F08900370461 /* MinuteEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C378D91A51F08900370461 /* MinuteEntry.m */; };
 		94C378DD1A51F0D500370461 /* MinuteStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C378DC1A51F0D500370461 /* MinuteStore.m */; };
 		94E3C4511A2F6BE600AFE1A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4501A2F6BE600AFE1A7 /* main.m */; };
@@ -51,6 +55,23 @@
 		94E3C4BA1A2FA93C00AFE1A7 /* TSharedProcessorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3C4A81A2FA93C00AFE1A7 /* TSharedProcessorFactory.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		94AA07CD1A59D6F1006DECE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94AA07A61A59D6F1006DECE7 /* OpenSense.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3DDED69B167D04CF006DE4F8;
+			remoteInfo = OpenSense;
+		};
+		94AA07CF1A59D6F1006DECE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94AA07A61A59D6F1006DECE7 /* OpenSense.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3DDED6AC167D04CF006DE4F8;
+			remoteInfo = OpenSenseTests;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		94270A3C1A545E5A00453F6D /* ExerciseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseVC.h; sourceTree = "<group>"; };
 		94270A3D1A545E5A00453F6D /* ExerciseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseVC.m; sourceTree = "<group>"; };
@@ -77,6 +98,12 @@
 		947378F41A435A9200DF933C /* MinuteTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinuteTVC.m; sourceTree = "<group>"; };
 		9499C9621A321A27004CEB67 /* OAuthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthVC.h; path = OAuth/OAuthVC.h; sourceTree = "<group>"; };
 		9499C9631A321A27004CEB67 /* OAuthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuthVC.m; path = OAuth/OAuthVC.m; sourceTree = "<group>"; };
+		94AA07A61A59D6F1006DECE7 /* OpenSense.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = OpenSense.xcodeproj; sourceTree = "<group>"; };
+		94AA07AA1A59D6F1006DECE7 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
+		94AA07AC1A59D6F1006DECE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		94AA07AD1A59D6F1006DECE7 /* LocalStorageTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalStorageTests.h; sourceTree = "<group>"; };
+		94AA07AE1A59D6F1006DECE7 /* LocalStorageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalStorageTests.m; sourceTree = "<group>"; };
+		94AA07AF1A59D6F1006DECE7 /* OpenSenseTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "OpenSenseTests-Info.plist"; sourceTree = "<group>"; };
 		94C378D81A51F08900370461 /* MinuteEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinuteEntry.h; sourceTree = "<group>"; };
 		94C378D91A51F08900370461 /* MinuteEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinuteEntry.m; sourceTree = "<group>"; };
 		94C378DB1A51F0D500370461 /* MinuteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinuteStore.h; sourceTree = "<group>"; };
@@ -214,6 +241,36 @@
 			name = OAuth;
 			sourceTree = "<group>";
 		};
+		94AA076E1A59D6F1006DECE7 /* OpenSense */ = {
+			isa = PBXGroup;
+			children = (
+				94AA07A61A59D6F1006DECE7 /* OpenSense.xcodeproj */,
+				94AA07A91A59D6F1006DECE7 /* OpenSenseTests */,
+			);
+			path = OpenSense;
+			sourceTree = "<group>";
+		};
+		94AA07A71A59D6F1006DECE7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				94AA07CE1A59D6F1006DECE7 /* libOpenSense.a */,
+				94AA07D01A59D6F1006DECE7 /* OpenSenseTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		94AA07A91A59D6F1006DECE7 /* OpenSenseTests */ = {
+			isa = PBXGroup;
+			children = (
+				94AA07AA1A59D6F1006DECE7 /* config.json */,
+				94AA07AB1A59D6F1006DECE7 /* InfoPlist.strings */,
+				94AA07AD1A59D6F1006DECE7 /* LocalStorageTests.h */,
+				94AA07AE1A59D6F1006DECE7 /* LocalStorageTests.m */,
+				94AA07AF1A59D6F1006DECE7 /* OpenSenseTests-Info.plist */,
+			);
+			path = OpenSenseTests;
+			sourceTree = "<group>";
+		};
 		94DFCF2D1A3A0CFF00874346 /* Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +356,7 @@
 		94E3C4741A2FA86000AFE1A7 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				94AA076E1A59D6F1006DECE7 /* OpenSense */,
 				94E3C4791A2FA93C00AFE1A7 /* thrift */,
 				94E3C4751A2FA86700AFE1A7 /* datahub-thrift */,
 			);
@@ -435,12 +493,35 @@
 			mainGroup = 94E3C4421A2F6BE600AFE1A7;
 			productRefGroup = 94E3C44C1A2F6BE600AFE1A7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 94AA07A71A59D6F1006DECE7 /* Products */;
+					ProjectRef = 94AA07A61A59D6F1006DECE7 /* OpenSense.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				94E3C44A1A2F6BE600AFE1A7 /* GetFit */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		94AA07CE1A59D6F1006DECE7 /* libOpenSense.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libOpenSense.a;
+			remoteRef = 94AA07CD1A59D6F1006DECE7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		94AA07D01A59D6F1006DECE7 /* OpenSenseTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = OpenSenseTests.octest;
+			remoteRef = 94AA07CF1A59D6F1006DECE7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		94E3C4491A2F6BE600AFE1A7 /* Resources */ = {
@@ -449,12 +530,15 @@
 			files = (
 				94E3C45A1A2F6BE600AFE1A7 /* Main.storyboard in Resources */,
 				947378E61A42384E00DF933C /* GraphTwo.jpg in Resources */,
+				94AA07C71A59D6F1006DECE7 /* config.json in Resources */,
+				94AA07CA1A59D6F1006DECE7 /* OpenSenseTests-Info.plist in Resources */,
 				94270A4B1A54941800453F6D /* chart_column.png in Resources */,
 				94270A4C1A54941800453F6D /* chart_line.png in Resources */,
 				94E3C45F1A2F6BE600AFE1A7 /* LaunchScreen.xib in Resources */,
 				94E3C45C1A2F6BE600AFE1A7 /* Images.xcassets in Resources */,
 				947378E51A42384E00DF933C /* GraphOne.jpg in Resources */,
 				94270A4D1A54941800453F6D /* chart_pie.png in Resources */,
+				94AA07C81A59D6F1006DECE7 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +568,7 @@
 				94E3C4B61A2FA93C00AFE1A7 /* TSocketClient.m in Sources */,
 				94E3C4AA1A2FA93C00AFE1A7 /* TMultiplexedProtocol.m in Sources */,
 				94E3C4511A2F6BE600AFE1A7 /* main.m in Sources */,
+				94AA07C91A59D6F1006DECE7 /* LocalStorageTests.m in Sources */,
 				94E3C4B91A2FA93C00AFE1A7 /* TTransportException.m in Sources */,
 				947378F51A435A9200DF933C /* MinuteTVC.m in Sources */,
 				9499C9641A321A27004CEB67 /* OAuthVC.m in Sources */,
@@ -505,6 +590,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		94AA07AB1A59D6F1006DECE7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94AA07AC1A59D6F1006DECE7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		94E3C4581A2F6BE600AFE1A7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

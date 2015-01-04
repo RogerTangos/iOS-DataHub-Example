@@ -13,7 +13,6 @@
 #import "MinuteEntry.h"
 
 
-
 @interface ExerciseVC ()
 
 @property MinuteEntry *minuteEntry;
